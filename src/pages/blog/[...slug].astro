@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCTA from '../../components/BlogCTA.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection, render } from 'astro:content';
+import { getReadingTime } from '../../utils/reading-time';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const readingTime = getReadingTime(post.body || '');
+
+// Related posts: same tags, excluding current
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const related = allPosts
+  .filter(p => p.id !== post.id)
+  .filter(p => p.data.tags.some(t => post.data.tags.includes(t)))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+<BaseLayout
+  title={post.data.title + ' | Burst2GIF Blog'}
+  description={post.data.description}
+  ogUrl={`https://boost.photo/blog/${post.id}`}
+  ogTitle={post.data.title}
+  ogDescription={post.data.description}
+  ogImage={post.data.image.startsWith('http') ? post.data.image : `https://boost.photo${post.data.image}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.data.title,
+      "description": post.data.description,
+      "datePublished": post.data.date.toISOString(),
+      "image": post.data.image.startsWith('http') ? post.data.image : `https://boost.photo${post.data.image}`,
+      "author": { "@type": "Person", "name": "Marek Topolar" },
+      "publisher": { "@type": "Organization", "name": "boost.photo" },
+      "url": `https://boost.photo/blog/${post.id}`
+    })} />
+  </Fragment>
+
+  <Nav activeLink="blog" />
+
+  <article class="py-12 lg:py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="mb-8">
+        <div class="flex items-center gap-3 mb-4">
+          {post.data.tags.slice(0, 3).map(tag => (
+            <span class="text-xs font-medium bg-indigo-50 text-indigo-600 rounded-full px-2.5 py-0.5">{tag}</span>
+          ))}
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">{post.data.title}</h1>
+        <div class="flex items-center gap-4 text-sm text-slate-500">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span>&middot;</span>
+          <span>{readingTime} min read</span>
+        </div>
+      </div>
+
+      <!-- Featured Image -->
+      <img
+        src={post.data.image}
+        alt={post.data.imageAlt}
+        class="w-full rounded-2xl mb-10 shadow-lg"
+        loading="eager"
+      />
+
+      <!-- Content -->
+      <div class="prose prose-lg prose-slate max-w-none
+        prose-headings:font-bold prose-headings:tracking-tight
+        prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-slate-600 prose-p:leading-relaxed
+        prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline
+        prose-img:rounded-xl prose-img:shadow-lg
+        prose-strong:text-slate-900
+        prose-table:text-sm
+        prose-th:bg-slate-50 prose-th:p-3
+        prose-td:p-3 prose-td:border-slate-200
+      ">
+        <Content />
+      </div>
+
+      <!-- CTA -->
+      <BlogCTA />
+
+      <!-- Related Posts -->
+      {related.length > 0 && (
+        <div class="mt-16 pt-10 border-t border-slate-200">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Related Articles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {related.map(p => (
+              <BlogCard
+                title={p.data.title}
+                description={p.data.description}
+                date={p.data.date}
+                image={p.data.image}
+                imageAlt={p.data.imageAlt}
+                slug={p.id}
+                tags={p.data.tags}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <Footer />
+</BaseLayout>

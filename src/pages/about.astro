@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+<BaseLayout title="About - Burst2GIF by boost.photo | Built by a Wedding Photographer" description="Burst2GIF was built by Marek Topolar, a wedding photographer with 200+ weddings and 10+ years of experience. He built the plugin to solve his own problem." ogUrl="https://boost.photo/about">
+  <Nav activeLink="about" />
+
+    <!-- HERO -->
+    <section class="py-16 lg:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-white bg-indigo-600 rounded-full">
+                About
+            </span>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+                I built this because I was tired of
+                <span class="gradient-text">wasting 2 hours on GIFs.</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="pb-16 lg:pb-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg prose-slate max-w-none">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-8">
+                    <img src="/assets/images/marek-topolar.webp" alt="Marek Topolar" class="w-full aspect-[4/5] rounded-2xl object-cover shadow-lg">
+                    <p class="text-xl text-slate-600 leading-relaxed">
+                        Hi, I'm Marek Topolar &mdash; a wedding and family photographer from Brno, Czech Republic.
+                        Over the past 10+ years, I've shot more than 200 weddings. And at some point, I realized
+                        that static photos alone weren't enough anymore.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">The wedding that started it all</h2>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    At the beginning of the 2025 season, I made a decision: GIFs would be part of every single wedding album I deliver on <strong>Pic-Time</strong>. The idea was simple &mdash; when clients scroll through their gallery and a photo suddenly starts moving, it's pure magic. The first kiss, the bouquet toss, the dance &mdash; these moments deserve more than a frozen frame.
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    Then came the first wedding. I wanted to create 20 GIFs. And reality hit hard.
+                </p>
+
+                <div class="my-8 p-6 bg-red-50 border border-red-200 rounded-xl">
+                    <p class="text-lg text-red-800 font-medium mb-3">My workflow for each GIF:</p>
+                    <ol class="text-red-700 space-y-1 list-decimal list-inside">
+                        <li>Select burst photos in Lightroom</li>
+                        <li>Export 30+ JPEGs to a folder</li>
+                        <li>Open Photoshop</li>
+                        <li>Import the sequence, set timing, adjust settings</li>
+                        <li>Export as GIF or MP4</li>
+                        <li>Re-import back into the album with the correct capture time so it sorts properly</li>
+                    </ol>
+                    <p class="text-red-700 mt-3">
+                        <strong>20-30 clicks per GIF. ~8 minutes each.</strong>
+                    </p>
+                </div>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    20 GIFs took me almost <strong>2 hours</strong> &mdash; nearly as long as editing all the wedding photos themselves. The workflow was brutal, kludgy, and unsustainable. I knew right away: if I want GIFs in every gallery, I need a completely different way to make them.
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">So I built a plugin</h2>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    I'm also a developer. So that very day, I decided: as soon as I can, I'm building a Lightroom plugin that makes this 10x faster. No more exporting to folders. No more Photoshop. No more re-importing.
+                </p>
+
+                <div class="my-8 p-6 bg-emerald-50 border border-emerald-200 rounded-xl">
+                    <p class="text-lg text-emerald-800 font-medium mb-3">My new workflow with Burst2GIF:</p>
+                    <ol class="text-emerald-700 space-y-1 list-decimal list-inside">
+                        <li>Select burst photos in Lightroom</li>
+                        <li>Click Export</li>
+                        <li>Done &mdash; GIF or MP4 ready, with correct capture time</li>
+                    </ol>
+                    <p class="text-emerald-700 mt-3">
+                        <strong>3 clicks. 10 seconds. No Photoshop needed.</strong>
+                    </p>
+                </div>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    Those same 20 GIFs that used to take 2 hours? Now they take <strong>5&ndash;10 minutes</strong>.
+                    That's 10x faster. And because it's so effortless, I actually make <em>more</em> GIFs per gallery &mdash; which means a better product for my clients.
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-12 mb-4">Why I'm sharing it</h2>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    After using the plugin on my own weddings for a while, I realized other photographers
+                    have the exact same problem. Whether you shoot weddings, families, wildlife, or sports
+                    &mdash; if you take burst sequences and want to turn them into motion, you're stuck
+                    with the same tedious multi-app workflow.
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    Burst2GIF is my answer to that. One plugin. Three clicks. All your Lightroom edits preserved.
+                    No Photoshop, no video editor, no export-import dance.
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                    If you're a photographer who shoots burst sequences and wants to deliver something
+                    more than static images &mdash; I built this for you.
+                </p>
+
+                <!-- CTA -->
+                <div class="mt-12 p-8 bg-indigo-600 rounded-2xl text-center">
+                    <h3 class="text-2xl font-bold text-white mb-4">Try it yourself</h3>
+                    <p class="text-indigo-100 mb-6">
+                        The free version gives you 10 exports &mdash; enough to see if it fits your workflow.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="/#pricing" class="px-8 py-3.5 text-base font-semibold text-indigo-600 bg-white rounded-lg hover:bg-slate-100 transition">
+                            Download Free
+                        </a>
+                        <a href="https://burst2gif.lemonsqueezy.com/buy/single" class="px-8 py-3.5 text-base font-semibold text-slate-900 bg-amber-400 rounded-lg hover:bg-amber-300 transition">
+                            Buy Standard $39
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="mt-12 text-center">
+                    <p class="text-slate-500">
+                        Questions? Reach out at
+                        <a href="mailto:hello@boost.photo" class="text-indigo-600 hover:text-indigo-500 transition">hello@boost.photo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <Footer />
+</BaseLayout>

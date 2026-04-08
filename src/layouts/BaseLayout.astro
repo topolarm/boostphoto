@@ -1,0 +1,112 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
+  noindex?: boolean;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://boost.photo/og-image.png',
+  ogUrl,
+  noindex = false,
+  canonicalUrl,
+} = Astro.props;
+
+const canonical = canonicalUrl || Astro.url.href;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    {noindex && <meta name="robots" content="noindex">}
+    <link rel="canonical" href={canonical}>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={ogUrl || canonical}>
+    <meta property="og:title" content={ogTitle || title}>
+    <meta property="og:description" content={ogDescription || description}>
+    <meta property="og:image" content={ogImage}>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content={ogTitle || title}>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <slot name="head" />
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+    <slot />
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 border-t border-slate-700 p-4 transform translate-y-full transition-transform duration-300">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-300 text-center sm:text-left">
+                We use cookies for analytics (Google Analytics) and fonts (Google Fonts).
+                <a href="/privacy" class="text-indigo-400 hover:text-indigo-300 transition underline">Privacy Policy</a>
+            </p>
+            <div class="flex gap-2">
+                <button onclick="declineCookies()" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-slate-300 bg-slate-700 rounded-lg hover:bg-slate-600 transition">
+                    Decline
+                </button>
+                <button onclick="acceptCookies()" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-slate-900 bg-white rounded-lg hover:bg-slate-100 transition">
+                    Accept
+                </button>
+            </div>
+        </div>
+    </div>
+    <script is:inline>
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').classList.add('translate-y-full');
+            loadGoogleAnalytics();
+        }
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookie-banner').classList.add('translate-y-full');
+        }
+        function loadGoogleAnalytics() {
+            var gaId = 'GA_MEASUREMENT_ID';
+            if (gaId === 'GA_MEASUREMENT_ID') return;
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', gaId, { anonymize_ip: true });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(function() {
+                    document.getElementById('cookie-banner').classList.remove('translate-y-full');
+                }, 1000);
+            } else if (consent === 'accepted') {
+                loadGoogleAnalytics();
+            }
+        });
+    </script>
+</body>
+</html>

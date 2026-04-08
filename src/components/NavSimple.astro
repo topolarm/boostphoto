@@ -1,0 +1,25 @@
+---
+interface Props {
+  dark?: boolean;
+  backLabel?: string;
+  backUrl?: string;
+}
+const { dark = false, backLabel = 'Back to Home', backUrl = '/' } = Astro.props;
+---
+<nav class:list={[
+  "fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b",
+  dark ? "bg-slate-900/80 border-slate-800" : "bg-white/90 border-slate-200"
+]}>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <a href="/" class:list={["text-xl font-bold", dark ? "text-white" : "text-slate-900"]}>
+                Burst<span class:list={[dark ? "text-indigo-500" : "text-indigo-600"]}>2</span>GIF
+                <span class="text-sm font-normal text-slate-400 ml-1">by boost.photo</span>
+            </a>
+            <a href={backUrl} class:list={["transition", dark ? "text-slate-400 hover:text-white" : "text-slate-600 hover:text-slate-900"]}>
+                &larr; {backLabel}
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="h-16"></div>

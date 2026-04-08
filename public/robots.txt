@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /hvco-guide
+
+Sitemap: https://boost.photo/sitemap-index.xml
