@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burst2GIF — Burst to GIF in Lightroom</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+            dark: { 900: '#0a0a0a', 800: '#141414', 700: '#1a1a1a', 600: '#222' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body {
+      background-color: #0a0a0a;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    }
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 40%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(245, 158, 11, 0.15);
+    }
+    .glass-card { transition: all 0.4s ease; }
+    .glow-btn {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.2), 0 0 60px rgba(245, 158, 11, 0.05);
+      transition: all 0.3s ease;
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.35), 0 0 80px rgba(245, 158, 11, 0.1);
+      transform: translateY(-2px);
+    }
+    .outline-btn {
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+    .outline-btn:hover {
+      border-color: rgba(245, 158, 11, 0.6);
+      background: rgba(245, 158, 11, 0.05);
+    }
+    .gold-line {
+      width: 3px;
+      background: linear-gradient(180deg, #f59e0b, transparent);
+    }
+    .pricing-ring {
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+    .pricing-ring:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .pricing-ring { transition: border-color 0.3s ease; }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards;
+    }
+    .fade-in-d1 { animation-delay: 0.2s; }
+    .fade-in-d2 { animation-delay: 0.4s; }
+    .fade-in-d3 { animation-delay: 0.6s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .pulse-dot {
+      animation: pulse-gold 2.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="text-white antialiased">
+
+  <!-- Nav -->
+  <nav class="relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-lg font-bold tracking-tight">Burst2GIF</span>
+        <span class="pulse-dot inline-block w-1.5 h-1.5 rounded-full bg-gold-500"></span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#features" class="text-sm text-neutral-500 hover:text-gold-500 transition-colors">Features</a>
+        <a href="#pricing" class="text-sm text-neutral-500 hover:text-gold-500 transition-colors">Pricing</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-amber-500/[0.03] to-transparent pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-6 pt-28 pb-32 text-center relative z-10">
+      <div class="fade-in">
+        <span class="inline-block text-[11px] tracking-[0.2em] uppercase text-gold-500 font-medium border border-gold-500/20 px-4 py-1.5 rounded-full mb-10">
+          Lightroom Classic Plugin
+        </span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] fade-in fade-in-d1">
+        Burst to GIF in 3 Clicks.<br>
+        <span class="text-gradient-gold">Right Inside Lightroom.</span>
+      </h1>
+      <p class="text-lg text-neutral-400 mt-8 max-w-2xl mx-auto leading-relaxed font-light fade-in fade-in-d2">
+        Convert burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit you've made.
+      </p>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center fade-in fade-in-d3">
+        <a href="#" class="glow-btn inline-block text-dark-900 text-sm font-semibold px-8 py-4 rounded-lg">
+          Download Free — 10 Exports
+        </a>
+        <a href="#" class="outline-btn inline-block text-gold-500 text-sm font-medium px-8 py-4 rounded-lg">
+          Buy Standard <span class="line-through text-neutral-600 ml-1">$59</span> $39
+        </a>
+      </div>
+      <p class="text-xs text-neutral-600 mt-5">macOS &middot; Lightroom Classic &middot; No subscription</p>
+    </div>
+  </section>
+
+  <div class="divider max-w-4xl mx-auto"></div>
+
+  <!-- Features -->
+  <section id="features" class="py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-[11px] tracking-[0.2em] uppercase text-gold-500 font-medium">Features</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-4">Everything you need.<br><span class="text-neutral-500 font-light">Nothing you don't.</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="glass-card rounded-xl p-7">
+          <div class="text-gold-500 text-2xl mb-4">&#9654;</div>
+          <h3 class="text-base font-semibold mb-2">MP4 &amp; GIF Export</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed">Two formats. One seamless workflow. Perfect for Instagram stories, client galleries, or portfolio pieces.</p>
+        </div>
+        <div class="glass-card rounded-xl p-7">
+          <div class="text-gold-500 text-2xl mb-4">&#9673;</div>
+          <h3 class="text-base font-semibold mb-2">Live Preview</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed">Watch your animation play before exporting. Dial in the perfect timing and see every Lightroom edit in motion.</p>
+        </div>
+        <div class="glass-card rounded-xl p-7">
+          <div class="text-gold-500 text-2xl mb-4">&#9201;</div>
+          <h3 class="text-base font-semibold mb-2">Auto-Detect FPS</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed">Reads EXIF capture intervals and sets the optimal frame rate automatically. Manual override always available.</p>
+        </div>
+        <div class="glass-card rounded-xl p-7">
+          <div class="text-gold-500 text-2xl mb-4">&#9724;</div>
+          <h3 class="text-base font-semibold mb-2">Native macOS</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed">Built for Apple Silicon from the ground up. Lightning fast rendering, tiny footprint, zero dependencies.</p>
+        </div>
+        <div class="glass-card rounded-xl p-7 md:col-span-2">
+          <div class="text-gold-500 text-2xl mb-4">&#10070;</div>
+          <h3 class="text-base font-semibold mb-2">Smart Capture Time Grouping</h3>
+          <p class="text-sm text-neutral-500 leading-relaxed max-w-md">Automatically identifies burst sequences from your timeline based on capture metadata. Select a range and the plugin handles the rest — no manual sorting needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-4xl mx-auto"></div>
+
+  <!-- Testimonial -->
+  <section class="py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="flex gap-6">
+        <div class="gold-line flex-shrink-0 rounded-full"></div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-light leading-relaxed text-neutral-300">
+            &ldquo;This is a game-changer for wedding galleries. What used to take me an hour now happens in minutes, and the quality is stunning.&rdquo;
+          </p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-900 text-xs font-bold">M</div>
+            <div>
+              <p class="text-sm font-medium text-neutral-300">Magda B.</p>
+              <p class="text-xs text-neutral-600">Wedding Photographer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-4xl mx-auto"></div>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-28">
+    <div class="max-w-lg mx-auto px-6 text-center">
+      <p class="text-[11px] tracking-[0.2em] uppercase text-gold-500 font-medium">Pricing</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-4">One price. Yours forever.</h2>
+      <div class="pricing-ring rounded-2xl p-10 mt-12 bg-dark-800/50">
+        <div class="flex items-baseline justify-center gap-2">
+          <span class="text-6xl font-bold tracking-tight text-gradient-gold">$39</span>
+        </div>
+        <p class="text-sm text-neutral-500 mt-2"><span class="line-through text-neutral-700">$59</span> &mdash; Standard License</p>
+        <ul class="text-sm text-neutral-400 mt-8 space-y-3 text-left max-w-xs mx-auto">
+          <li class="flex items-center gap-2"><span class="text-gold-500">&#10003;</span> Unlimited exports</li>
+          <li class="flex items-center gap-2"><span class="text-gold-500">&#10003;</span> MP4 + GIF formats</li>
+          <li class="flex items-center gap-2"><span class="text-gold-500">&#10003;</span> 1 year of free updates</li>
+          <li class="flex items-center gap-2"><span class="text-gold-500">&#10003;</span> Priority email support</li>
+        </ul>
+        <a href="#" class="glow-btn inline-block text-dark-900 text-sm font-semibold px-10 py-4 rounded-lg mt-10 w-full">
+          Buy Standard — $39
+        </a>
+        <p class="text-xs text-neutral-600 mt-4">Or start with 10 free exports</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-4xl mx-auto"></div>
+
+  <!-- About -->
+  <section class="py-28">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <p class="text-[11px] tracking-[0.2em] uppercase text-gold-500 font-medium">Built by a photographer</p>
+      <p class="text-xl text-neutral-400 font-light leading-relaxed mt-8">
+        I'm <span class="text-white font-medium">Marek Topolar</span> — 200+ weddings behind me. I built Burst2GIF because creating 20 GIFs used to take me 2 hours. <span class="text-white">Now it takes 5&ndash;10 minutes.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
+      <span class="text-xs text-neutral-700">&copy; 2026 boost.photo</span>
+      <span class="text-xs text-neutral-700">macOS &middot; Lightroom Classic</span>
+    </div>
+  </footer>
+
+</body>
+</html>

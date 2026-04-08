@@ -2,7 +2,7 @@
 title: "GIF vs MP4 for Photography: Which Format Should You Deliver?"
 description: "A practical comparison of GIF and MP4 for photographers. File size, quality, compatibility, and when to use each format."
 date: 2026-04-01
-image: "/assets/images/demo-poster.jpg"
+image: "/assets/images/blog/gif-vs-mp4-photography.svg"
 imageAlt: "Side-by-side comparison of GIF and MP4 video from the same burst photo sequence"
 tags: ["gif", "mp4", "formats", "photography"]
 draft: false

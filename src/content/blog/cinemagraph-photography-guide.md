@@ -2,7 +2,7 @@
 title: "Cinemagraph Photography: How to Create Living Photos That Stop the Scroll"
 description: "What cinemagraphs are, how to shoot them, and how burst photos can create similar living-photo effects for your portfolio."
 date: 2026-03-28
-image: "/assets/images/demo-poster.jpg"
+image: "/assets/images/blog/cinemagraph-photography-guide.svg"
 imageAlt: "Cinemagraph example showing a wedding couple with wind in hair as the only moving element"
 tags: ["cinemagraph", "photography", "gif", "creative"]
 draft: false

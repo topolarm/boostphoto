@@ -2,7 +2,7 @@
 title: "How to Shoot Burst Photos for Perfect GIFs: A Photographer's Guide"
 description: "Camera settings, shooting techniques, and best practices for capturing burst sequences that make smooth, professional GIFs."
 date: 2026-04-06
-image: "/assets/images/blog/lightroom-burst-dialog.jpg"
+image: "/assets/images/blog/how-to-shoot-burst-photos-for-gifs.svg"
 imageAlt: "Burst photo sequence selected in Lightroom Classic"
 tags: ["burst-photos", "camera-settings", "photography-tips"]
 draft: false

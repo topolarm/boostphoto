@@ -2,7 +2,7 @@
 title: "10 Best Wedding Moments to Capture as Burst Photos (and Turn into GIFs)"
 description: "A wedding photographer's guide to the moments that make the best burst-to-GIF animations for client galleries."
 date: 2026-04-04
-image: "/assets/images/demo-poster.jpg"
+image: "/assets/images/blog/best-wedding-moments-for-burst-photos.svg"
 imageAlt: "Wedding couple walking down the aisle captured as a burst photo sequence"
 tags: ["wedding-photography", "burst-photos", "gif", "pic-time"]
 draft: false

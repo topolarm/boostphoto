@@ -2,7 +2,7 @@
 title: "How to Deliver GIFs in Your Pic-Time and Pixieset Wedding Gallery"
 description: "Step-by-step guide to adding animated GIFs and MP4 videos to your client wedding galleries on Pic-Time and Pixieset."
 date: 2026-04-03
-image: "/assets/images/demo-poster.jpg"
+image: "/assets/images/blog/gif-wedding-photo-gallery-guide.svg"
 imageAlt: "Wedding photo gallery with animated GIFs between photos on Pic-Time"
 tags: ["wedding-photography", "gallery", "pic-time", "gif"]
 draft: false

@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f" />
+      <stop offset="100%" style="stop-color:#312e81" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="130" r="180" fill="rgba(255,255,255,0.03)" />
+  <circle cx="100" cy="500" r="200" fill="rgba(255,255,255,0.03)" />
+
+  <!-- Video play button decoration -->
+  <circle cx="1000" cy="400" r="50" fill="rgba(255,255,255,0.07)" />
+  <polygon points="988,380 988,420 1020,400" fill="rgba(255,255,255,0.12)" />
+
+  <!-- Timeline decoration -->
+  <line x1="80" y1="480" x2="350" y2="480" stroke="rgba(255,255,255,0.1)" stroke-width="3" />
+  <circle cx="120" cy="480" r="6" fill="rgba(255,255,255,0.15)" />
+  <circle cx="200" cy="480" r="6" fill="rgba(255,255,255,0.12)" />
+  <circle cx="280" cy="480" r="6" fill="rgba(255,255,255,0.09)" />
+
+  <!-- Decorative lines -->
+  <line x1="80" y1="180" x2="220" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="3" />
+  <line x1="80" y1="195" x2="150" y2="195" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+
+  <!-- Export arrow decoration -->
+  <rect x="920" y="180" width="60" height="60" rx="8" fill="rgba(255,255,255,0.06)" />
+  <path d="M940 220 L950 200 L960 220 M950 200 L950 230" stroke="rgba(255,255,255,0.15)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+  <!-- Category pill -->
+  <rect x="530" y="140" width="140" height="32" rx="16" fill="rgba(255,255,255,0.15)" />
+  <text x="600" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.85)" letter-spacing="1">LIGHTROOM</text>
+
+  <!-- Title text -->
+  <text x="600" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="50" fill="white" letter-spacing="-0.5">
+    <tspan x="600" dy="0">Lightroom Video Export:</tspan>
+    <tspan x="600" dy="66">Everything Photographers</tspan>
+    <tspan x="600" dy="66">Need to Know</tspan>
+  </text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(0,0,0,0.2)" />
+
+  <!-- boost.photo branding -->
+  <text x="1160" y="610" text-anchor="end" font-family="Inter, sans-serif" font-weight="500" font-size="18" fill="rgba(255,255,255,0.6)">boost.photo</text>
+</svg>

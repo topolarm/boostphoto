@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burst2GIF — Burst to GIF in Lightroom | boost.photo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#111111',
+                        'dark-light': '#1a1a1f',
+                        'dark-lighter': '#222228',
+                        accent: '#3b82f6',
+                        amber: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: #111111;
+        }
+        .glow-text {
+            text-shadow: 0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.1);
+        }
+        .glow-btn {
+            box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+            transition: all 0.4s ease;
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+        }
+        .light-streak {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.15) 20%, rgba(59, 130, 246, 0.3) 50%, rgba(59, 130, 246, 0.15) 80%, transparent 100%);
+        }
+        .amber-streak {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.1) 20%, rgba(245, 158, 11, 0.2) 50%, rgba(245, 158, 11, 0.1) 80%, transparent 100%);
+        }
+        @keyframes hero-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #111111 0%, #151520 25%, #111118 50%, #151515 75%, #111111 100%);
+            background-size: 400% 400%;
+            animation: hero-gradient 20s ease infinite;
+        }
+        .letterbox {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .letterbox {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+        }
+        .feature-divider {
+            width: 1px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Nav -->
+    <nav class="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
+        <div class="text-lg font-semibold tracking-tight text-white/80">boost<span class="text-accent">.photo</span></div>
+        <div class="flex items-center gap-8 text-sm text-white/40 font-medium">
+            <a href="#features" class="hover:text-white transition-colors duration-300">Features</a>
+            <a href="#pricing" class="hover:text-white transition-colors duration-300">Pricing</a>
+            <a href="#" class="text-white bg-accent/10 border border-accent/20 px-5 py-2 rounded hover:bg-accent/20 transition-all duration-300 glow-btn">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg letterbox">
+        <div class="max-w-7xl mx-auto px-8 py-24 md:py-36 text-center">
+            <div class="mb-8">
+                <span class="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-accent/70 border border-accent/20 px-5 py-2 rounded-full">Lightroom Classic Plugin</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-8 max-w-5xl mx-auto">
+                Burst to GIF in 3&nbsp;Clicks.<br>
+                <span class="glow-text text-accent">Right Inside</span> Lightroom.
+            </h1>
+            <p class="text-lg md:text-xl text-white/35 max-w-2xl mx-auto leading-relaxed mb-14 font-normal">
+                Convert burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit you've made.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" class="bg-accent hover:bg-accent/90 text-white font-semibold px-10 py-4 rounded transition-all duration-300 glow-btn">
+                    Download Free — 10 exports
+                </a>
+                <a href="#" class="border border-white/15 hover:border-accent/40 text-white/60 hover:text-white font-semibold px-10 py-4 rounded transition-all duration-300">
+                    Buy Standard <span class="line-through opacity-40">$59</span> $39
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Light Streak -->
+    <div class="light-streak max-w-5xl mx-auto"></div>
+
+    <!-- Features — Horizontal -->
+    <section id="features" class="max-w-7xl mx-auto px-8 py-24 md:py-32">
+        <p class="text-xs font-semibold tracking-[0.3em] uppercase text-white/20 text-center mb-16">Features</p>
+
+        <!-- Desktop: horizontal row with dividers -->
+        <div class="hidden md:flex items-stretch justify-between gap-0">
+            <!-- Feature 1 -->
+            <div class="flex-1 px-8 text-center">
+                <div class="w-10 h-10 mx-auto mb-5 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">MP4 &amp; GIF Export</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Both formats, one plugin. Silky-smooth output, zero compromises on quality.</p>
+            </div>
+
+            <div class="feature-divider"></div>
+
+            <!-- Feature 2 -->
+            <div class="flex-1 px-8 text-center">
+                <div class="w-10 h-10 mx-auto mb-5 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Live Preview</h3>
+                <p class="text-sm text-white/30 leading-relaxed">See your animation before export. Adjust timing, review, and perfect every frame.</p>
+            </div>
+
+            <div class="feature-divider"></div>
+
+            <!-- Feature 3 -->
+            <div class="flex-1 px-8 text-center">
+                <div class="w-10 h-10 mx-auto mb-5 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Auto-Detect FPS</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Reads your camera's burst rate. Natural, fluid motion — automatically.</p>
+            </div>
+
+            <div class="feature-divider"></div>
+
+            <!-- Feature 4 -->
+            <div class="flex-1 px-8 text-center">
+                <div class="w-10 h-10 mx-auto mb-5 rounded-lg bg-amber/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Native macOS</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Built for macOS. Apple Silicon optimized — fast and responsive.</p>
+            </div>
+
+            <div class="feature-divider"></div>
+
+            <!-- Feature 5 -->
+            <div class="flex-1 px-8 text-center">
+                <div class="w-10 h-10 mx-auto mb-5 rounded-lg bg-amber/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Smart Capture Time</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Detects burst sequences by timestamps. Select photos, plugin sorts the rest.</p>
+            </div>
+        </div>
+
+        <!-- Mobile: stacked -->
+        <div class="md:hidden space-y-10">
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">MP4 &amp; GIF Export</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Both formats, one plugin. Zero compromises.</p>
+            </div>
+            <div class="light-streak max-w-xs mx-auto"></div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Live Preview</h3>
+                <p class="text-sm text-white/30 leading-relaxed">See your animation before export.</p>
+            </div>
+            <div class="light-streak max-w-xs mx-auto"></div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Auto-Detect FPS</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Natural, fluid motion — automatically.</p>
+            </div>
+            <div class="light-streak max-w-xs mx-auto"></div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-amber/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Native macOS</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Apple Silicon optimized.</p>
+            </div>
+            <div class="light-streak max-w-xs mx-auto"></div>
+            <div class="text-center">
+                <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-amber/10 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+                </div>
+                <h3 class="font-semibold text-white/90 mb-2">Smart Capture Time</h3>
+                <p class="text-sm text-white/30 leading-relaxed">Detects burst sequences by timestamps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amber Streak -->
+    <div class="amber-streak max-w-4xl mx-auto"></div>
+
+    <!-- Testimonial -->
+    <section class="max-w-7xl mx-auto px-8 py-24 md:py-32">
+        <div class="max-w-2xl mx-auto text-center">
+            <p class="text-2xl md:text-3xl font-medium text-white/70 leading-relaxed mb-8">
+                &ldquo;This is a game-changer for wedding galleries.&rdquo;
+            </p>
+            <div class="inline-flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center">
+                    <span class="text-accent text-xs font-semibold">MB</span>
+                </div>
+                <span class="text-sm text-white/30">Magda B. <span class="text-white/15">/</span> Wedding Photographer</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Light Streak -->
+    <div class="light-streak max-w-3xl mx-auto"></div>
+
+    <!-- About -->
+    <section class="max-w-7xl mx-auto px-8 py-24 text-center">
+        <p class="text-xs font-semibold tracking-[0.3em] uppercase text-amber/40 mb-6">About</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white/85 mb-4">Built by a photographer, for photographers.</h2>
+        <p class="text-white/25 max-w-lg mx-auto leading-relaxed">
+            Burst2GIF was born from a real workflow need — turning burst sequences into shareable moments without ever leaving Lightroom.
+        </p>
+    </section>
+
+    <!-- Light Streak -->
+    <div class="amber-streak max-w-5xl mx-auto"></div>
+
+    <!-- CTA -->
+    <section id="pricing" class="max-w-7xl mx-auto px-8 py-28 md:py-36 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+            Ready to <span class="glow-text text-accent">animate</span>?
+        </h2>
+        <p class="text-white/25 mb-12 max-w-md mx-auto">Start with 10 free exports. No credit card, no signup.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#" class="bg-accent hover:bg-accent/80 text-white font-semibold px-12 py-4 rounded transition-all duration-300 glow-btn">
+                Download Free — 10 exports
+            </a>
+            <a href="#" class="border border-white/10 hover:border-amber/30 text-white/50 hover:text-amber font-semibold px-12 py-4 rounded transition-all duration-300">
+                Buy Standard <span class="line-through opacity-40">$59</span> $39
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-8 py-8 border-t border-white/5">
+        <div class="flex items-center justify-between text-xs text-white/20">
+            <span>boost<span class="text-accent/40">.photo</span></span>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white/40 transition-colors">Support</a>
+                <a href="#" class="hover:text-white/40 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-white/40 transition-colors">Terms</a>
+            </div>
+            <span>&copy; 2026</span>
+        </div>
+    </footer>
+
+</body>
+</html>

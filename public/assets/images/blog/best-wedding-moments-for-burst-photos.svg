@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e11d48" />
+      <stop offset="100%" style="stop-color:#f472b6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="120" r="180" fill="rgba(255,255,255,0.04)" />
+  <circle cx="150" cy="510" r="220" fill="rgba(255,255,255,0.03)" />
+
+  <!-- Heart decorations -->
+  <path d="M1000 370 C1000 355, 1020 345, 1025 360 C1030 345, 1050 355, 1050 370 C1050 390, 1025 405, 1025 405 C1025 405, 1000 390, 1000 370Z" fill="rgba(255,255,255,0.08)" />
+  <path d="M920 420 C920 410, 933 405, 935 415 C937 405, 950 410, 950 420 C950 432, 935 440, 935 440 C935 440, 920 432, 920 420Z" fill="rgba(255,255,255,0.06)" />
+  <path d="M1070 440 C1070 432, 1080 428, 1082 435 C1084 428, 1094 432, 1094 440 C1094 450, 1082 455, 1082 455 C1082 455, 1070 450, 1070 440Z" fill="rgba(255,255,255,0.05)" />
+
+  <!-- Camera burst frames -->
+  <rect x="100" y="380" width="60" height="45" rx="4" fill="rgba(255,255,255,0.06)" />
+  <rect x="120" y="370" width="60" height="45" rx="4" fill="rgba(255,255,255,0.08)" />
+  <rect x="140" y="360" width="60" height="45" rx="4" fill="rgba(255,255,255,0.1)" />
+
+  <!-- Number 10 decoration -->
+  <text x="1050" y="290" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="120" fill="rgba(255,255,255,0.05)">10</text>
+
+  <!-- Decorative lines -->
+  <line x1="80" y1="180" x2="200" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="3" />
+  <line x1="80" y1="195" x2="140" y2="195" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+
+  <!-- Dots -->
+  <circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="130" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="160" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+
+  <!-- Category pill -->
+  <rect x="535" y="140" width="130" height="32" rx="16" fill="rgba(255,255,255,0.15)" />
+  <text x="600" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.85)" letter-spacing="1">WEDDING</text>
+
+  <!-- Title text -->
+  <text x="600" y="255" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="52" fill="white" letter-spacing="-0.5">
+    <tspan x="600" dy="0">10 Best Wedding Moments</tspan>
+    <tspan x="600" dy="68">to Capture as</tspan>
+    <tspan x="600" dy="68">Burst Photos</tspan>
+  </text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(0,0,0,0.2)" />
+
+  <!-- boost.photo branding -->
+  <text x="1160" y="610" text-anchor="end" font-family="Inter, sans-serif" font-weight="500" font-size="18" fill="rgba(255,255,255,0.6)">boost.photo</text>
+</svg>

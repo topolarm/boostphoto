@@ -2,7 +2,7 @@
 title: "How to Make a GIF in Lightroom (Yes, It's Actually Possible Now)"
 description: "Lightroom can't export GIFs natively. Here are 3 workarounds — including one that does it in 10 seconds without leaving Lightroom."
 date: 2026-04-05
-image: "/assets/images/blog/lightroom-burst-dialog.jpg"
+image: "/assets/images/blog/lightroom-gif-how-to.svg"
 imageAlt: "Burst2GIF plugin interface inside Lightroom Classic"
 tags: ["lightroom", "gif", "workflow", "tutorial"]
 draft: false

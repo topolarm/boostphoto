@@ -2,7 +2,7 @@
 title: "Burst to GIF: The Complete Guide to Turning Burst Photos into Smooth Animations"
 description: "Learn 3 ways to convert burst photos into GIFs and MP4 videos. Compare Photoshop, online tools, and the fastest method — directly from Lightroom."
 date: 2026-04-08
-image: "/assets/images/blog/lightroom-burst-dialog.jpg"
+image: "/assets/images/blog/burst-photos-to-gif-guide.svg"
 imageAlt: "Burst2GIF plugin dialog in Lightroom Classic showing burst photo export settings"
 tags: ["burst-photos", "gif", "lightroom", "tutorial"]
 draft: false

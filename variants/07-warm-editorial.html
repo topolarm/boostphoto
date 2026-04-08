@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burst2GIF — Burst to GIF in Lightroom | boost.photo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#faf8f5',
+                        'cream-dark': '#f0ece6',
+                        terracotta: '#c2410c',
+                        'warm-brown': '#78350f',
+                        'deep-rose': '#be123c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .ornament::before, .ornament::after {
+            content: '·';
+            margin: 0 1rem;
+            color: #c2410c;
+            font-size: 1.25rem;
+        }
+        .pull-quote::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            line-height: 0;
+            position: absolute;
+            top: 3.5rem;
+            left: -0.5rem;
+            color: #c2410c;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="bg-cream text-warm-brown font-sans antialiased">
+
+    <!-- Nav -->
+    <nav class="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between">
+        <div class="font-serif text-xl tracking-tight text-warm-brown">boost<span class="text-terracotta">.photo</span></div>
+        <div class="flex items-center gap-8 text-sm font-medium text-warm-brown/70">
+            <a href="#features" class="hover:text-terracotta transition-colors">Features</a>
+            <a href="#pricing" class="hover:text-terracotta transition-colors">Pricing</a>
+            <a href="#" class="bg-terracotta text-white px-5 py-2 rounded hover:bg-terracotta/90 transition-colors">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 pb-24">
+        <div class="text-center mb-6">
+            <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-terracotta border border-terracotta/30 px-4 py-1.5 rounded-full">Lightroom Classic Plugin</span>
+        </div>
+        <h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-center max-w-4xl mx-auto mb-8">
+            Burst to GIF in 3&nbsp;Clicks.<br>
+            <span class="text-terracotta">Right Inside</span> Lightroom.
+        </h1>
+        <p class="text-lg md:text-xl text-warm-brown/65 text-center max-w-2xl mx-auto leading-relaxed mb-12">
+            Convert burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit you've made.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#" class="bg-terracotta hover:bg-terracotta/90 text-white font-semibold px-8 py-3.5 rounded transition-colors text-base">
+                Download Free — 10 exports
+            </a>
+            <a href="#" class="border-2 border-warm-brown/20 hover:border-terracotta text-warm-brown font-semibold px-8 py-3.5 rounded transition-colors text-base">
+                Buy Standard <span class="line-through opacity-50">$59</span> $39
+            </a>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center justify-center text-warm-brown/20">
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+            <span class="ornament text-sm tracking-[0.3em] uppercase px-2">Features</span>
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+        </div>
+    </div>
+
+    <!-- Features — Editorial Spread -->
+    <section id="features" class="max-w-5xl mx-auto px-6 py-20">
+
+        <!-- Feature 1 -->
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-24">
+            <div>
+                <span class="font-serif text-7xl text-terracotta/15">01</span>
+                <h3 class="font-serif text-3xl text-warm-brown mt-2 mb-4">MP4 &amp; GIF Export</h3>
+                <p class="text-warm-brown/60 leading-relaxed">
+                    Export your burst sequences as silky-smooth MP4 videos or classic animated GIFs. Both formats, one plugin, zero compromises on quality.
+                </p>
+            </div>
+            <div class="bg-cream-dark rounded-lg aspect-[4/3] flex items-center justify-center">
+                <div class="text-center text-warm-brown/30">
+                    <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                    <span class="text-sm font-medium">MP4 &amp; GIF Preview</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-24">
+            <div class="md:order-2">
+                <span class="font-serif text-7xl text-terracotta/15">02</span>
+                <h3 class="font-serif text-3xl text-warm-brown mt-2 mb-4">Live Preview</h3>
+                <p class="text-warm-brown/60 leading-relaxed">
+                    See your animation come to life before you export. Adjust timing, review the flow, and perfect every frame — all within the familiar Lightroom interface.
+                </p>
+            </div>
+            <div class="bg-cream-dark rounded-lg aspect-[4/3] flex items-center justify-center md:order-1">
+                <div class="text-center text-warm-brown/30">
+                    <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                    <span class="text-sm font-medium">Live Preview</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center mb-24">
+            <div>
+                <span class="font-serif text-7xl text-terracotta/15">03</span>
+                <h3 class="font-serif text-3xl text-warm-brown mt-2 mb-4">Auto-Detect FPS</h3>
+                <p class="text-warm-brown/60 leading-relaxed">
+                    Burst2GIF reads your camera's burst rate and automatically sets the perfect frame rate. No manual calculations — just natural, fluid motion.
+                </p>
+            </div>
+            <div class="bg-cream-dark rounded-lg aspect-[4/3] flex items-center justify-center">
+                <div class="text-center text-warm-brown/30">
+                    <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm font-medium">Auto FPS Detection</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Row — 2 up -->
+        <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+            <div class="border-t border-warm-brown/10 pt-8">
+                <span class="font-serif text-7xl text-terracotta/15">04</span>
+                <h3 class="font-serif text-2xl text-warm-brown mt-2 mb-3">Native macOS</h3>
+                <p class="text-warm-brown/60 leading-relaxed text-sm">
+                    Built from the ground up for macOS. Optimized for Apple Silicon — fast, responsive, and right at home on your Mac.
+                </p>
+            </div>
+            <div class="border-t border-warm-brown/10 pt-8">
+                <span class="font-serif text-7xl text-terracotta/15">05</span>
+                <h3 class="font-serif text-2xl text-warm-brown mt-2 mb-3">Smart Capture Time</h3>
+                <p class="text-warm-brown/60 leading-relaxed text-sm">
+                    Intelligent grouping that detects burst sequences by capture timestamps. Select your photos and let the plugin sort out the rest.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center justify-center text-warm-brown/20">
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+            <span class="ornament text-sm tracking-[0.3em] uppercase px-2">Voices</span>
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <section class="max-w-3xl mx-auto px-6 py-24">
+        <blockquote class="relative pull-quote">
+            <p class="font-serif text-3xl md:text-4xl leading-snug text-warm-brown text-center">
+                This is a game-changer for wedding galleries.
+            </p>
+            <footer class="mt-8 text-center">
+                <div class="inline-flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center">
+                        <span class="font-serif text-terracotta text-sm">MB</span>
+                    </div>
+                    <div class="text-left">
+                        <p class="font-semibold text-warm-brown text-sm">Magda B.</p>
+                        <p class="text-warm-brown/50 text-xs">Wedding Photographer</p>
+                    </div>
+                </div>
+            </footer>
+        </blockquote>
+    </section>
+
+    <!-- About -->
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="bg-cream-dark rounded-xl p-12 md:p-16 text-center">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-terracotta mb-4">About</p>
+            <h2 class="font-serif text-3xl md:text-4xl text-warm-brown mb-4">Built by a photographer,<br>for photographers.</h2>
+            <p class="text-warm-brown/55 max-w-lg mx-auto leading-relaxed">
+                Burst2GIF was born from a real workflow need — turning burst sequences into shareable moments without ever leaving Lightroom.
+            </p>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center justify-center text-warm-brown/20">
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+            <span class="ornament text-sm tracking-[0.3em] uppercase px-2">Get Started</span>
+            <div class="flex-1 h-px bg-warm-brown/15"></div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="pricing" class="max-w-5xl mx-auto px-6 py-24 text-center">
+        <h2 class="font-serif text-4xl md:text-5xl text-warm-brown mb-4">Ready to animate<br>your bursts?</h2>
+        <p class="text-warm-brown/55 mb-10 max-w-md mx-auto">Start with 10 free exports. No credit card, no signup — just download and go.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#" class="bg-deep-rose hover:bg-deep-rose/90 text-white font-semibold px-10 py-4 rounded transition-colors">
+                Download Free — 10 exports
+            </a>
+            <a href="#" class="border-2 border-warm-brown/20 hover:border-deep-rose text-warm-brown font-semibold px-10 py-4 rounded transition-colors">
+                Buy Standard <span class="line-through opacity-50">$59</span> $39
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-6 py-12 border-t border-warm-brown/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-warm-brown/40">
+            <div class="font-serif text-warm-brown/60">boost<span class="text-terracotta/60">.photo</span></div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-terracotta transition-colors">Support</a>
+                <a href="#" class="hover:text-terracotta transition-colors">Privacy</a>
+                <a href="#" class="hover:text-terracotta transition-colors">Terms</a>
+            </div>
+            <p>&copy; 2026 boost.photo. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

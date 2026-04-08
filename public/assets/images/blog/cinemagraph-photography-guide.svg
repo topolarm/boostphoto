@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b" />
+      <stop offset="100%" style="stop-color:#1e40af" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="120" r="200" fill="rgba(255,255,255,0.03)" />
+  <circle cx="150" cy="530" r="230" fill="rgba(255,255,255,0.02)" />
+
+  <!-- Cinemagraph frame decoration - photo with motion area -->
+  <rect x="880" y="320" width="220" height="160" rx="6" fill="rgba(255,255,255,0.06)" />
+  <rect x="895" y="335" width="190" height="130" rx="3" fill="rgba(255,255,255,0.03)" />
+  <!-- Motion indicator waves -->
+  <path d="M930 380 Q950 365 970 380 Q990 395 1010 380" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none" />
+  <path d="M930 400 Q950 385 970 400 Q990 415 1010 400" stroke="rgba(255,255,255,0.09)" stroke-width="2" fill="none" />
+  <path d="M930 420 Q950 405 970 420 Q990 435 1010 420" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none" />
+
+  <!-- Stillness indicator (pin/lock) -->
+  <circle cx="1060" cy="370" r="12" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+  <rect x="1052" y="378" width="16" height="12" rx="2" fill="rgba(255,255,255,0.1)" />
+
+  <!-- Film strip decoration on left -->
+  <rect x="100" y="360" width="140" height="20" rx="2" fill="rgba(255,255,255,0.04)" />
+  <rect x="108" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+  <rect x="128" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+  <rect x="148" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+  <rect x="168" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+  <rect x="188" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+  <rect x="208" y="363" width="14" height="14" rx="1" fill="rgba(255,255,255,0.06)" />
+
+  <!-- Decorative lines -->
+  <line x1="80" y1="180" x2="220" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="3" />
+  <line x1="80" y1="195" x2="150" y2="195" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+
+  <!-- Stars / sparkle decoration -->
+  <path d="M200 440 L203 448 L212 448 L205 453 L208 462 L200 456 L192 462 L195 453 L188 448 L197 448Z" fill="rgba(255,255,255,0.08)" />
+  <path d="M260 480 L262 486 L268 486 L263 489 L265 495 L260 491 L255 495 L257 489 L252 486 L258 486Z" fill="rgba(255,255,255,0.06)" />
+
+  <!-- Dots -->
+  <circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="130" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="160" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="100" cy="130" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="130" cy="130" r="3" fill="rgba(255,255,255,0.1)" />
+
+  <!-- Category pill -->
+  <rect x="515" y="140" width="170" height="32" rx="16" fill="rgba(255,255,255,0.15)" />
+  <text x="600" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.85)" letter-spacing="1">CINEMAGRAPH</text>
+
+  <!-- Title text -->
+  <text x="600" y="255" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="52" fill="white" letter-spacing="-0.5">
+    <tspan x="600" dy="0">Cinemagraph Photography:</tspan>
+    <tspan x="600" dy="68">How to Create</tspan>
+    <tspan x="600" dy="68">Living Photos</tspan>
+  </text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(0,0,0,0.2)" />
+
+  <!-- boost.photo branding -->
+  <text x="1160" y="610" text-anchor="end" font-family="Inter, sans-serif" font-weight="500" font-size="18" fill="rgba(255,255,255,0.6)">boost.photo</text>
+</svg>

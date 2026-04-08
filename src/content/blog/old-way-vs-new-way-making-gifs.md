@@ -2,7 +2,7 @@
 title: "The Old Way vs The New Way: Making GIFs from Photos in 2025"
 description: "12 steps in Photoshop or 3 clicks in Lightroom. A side-by-side comparison of the old and new way to create GIFs from burst photos."
 date: 2026-03-30
-image: "/assets/images/blog/lightroom-burst-dialog.jpg"
+image: "/assets/images/blog/old-way-vs-new-way-making-gifs.svg"
 imageAlt: "Comparison of Photoshop timeline and Burst2GIF plugin for creating GIFs"
 tags: ["workflow", "gif", "lightroom", "photoshop"]
 draft: false

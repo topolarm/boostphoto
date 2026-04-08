@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burst2GIF — Burst to GIF in 3 Clicks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'JetBrains Mono', monospace; }
+    body { background: #0c0c0c; color: #b0b0b0; }
+    .term-green { color: #00ff41; }
+    .term-amber { color: #f59e0b; }
+    .term-dim { color: #555; }
+    .term-bright { color: #e0e0e0; }
+    .glow { text-shadow: 0 0 10px #00ff4166; }
+    .glow-amber { text-shadow: 0 0 10px #f59e0b66; }
+
+    /* Scanline overlay */
+    .scanlines::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.02) 2px,
+        rgba(0, 255, 65, 0.02) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* CRT vignette */
+    .scanlines::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%);
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* Terminal window */
+    .terminal {
+      background: #0c0c0c;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .terminal-bar {
+      background: #1a1a1a;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #333;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green { background: #28c840; }
+    .terminal-title {
+      color: #666;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+    .terminal-body {
+      padding: 24px;
+      line-height: 1.8;
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor::after {
+      content: '\2588';
+      color: #00ff41;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .prompt::before {
+      content: '$ ';
+      color: #00ff41;
+    }
+    .comment { color: #555; }
+    .comment::before { content: '# '; }
+
+    a { color: #00ff41; text-decoration: none; }
+    a:hover { text-decoration: underline; text-shadow: 0 0 8px #00ff4166; }
+
+    .btn-terminal {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+      padding: 12px 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-terminal:hover {
+      background: #00ff41;
+      color: #0c0c0c;
+      box-shadow: 0 0 20px #00ff4144;
+    }
+    .btn-terminal-amber {
+      border-color: #f59e0b;
+      color: #f59e0b;
+    }
+    .btn-terminal-amber:hover {
+      background: #f59e0b;
+      color: #0c0c0c;
+      box-shadow: 0 0 20px #f59e0b44;
+    }
+  </style>
+</head>
+<body class="scanlines min-h-screen">
+
+  <!-- FULL PAGE TERMINAL -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+        <span class="terminal-title">burst2gif &mdash; boost.photo &mdash; zsh &mdash; 120x48</span>
+      </div>
+
+      <div class="terminal-body">
+
+        <!-- HERO SECTION -->
+        <section class="mb-16">
+          <div class="comment mb-4">Lightroom Classic Plugin</div>
+          <div class="text-sm mb-6">
+            <span class="prompt term-green">burst2gif --help</span>
+          </div>
+
+          <pre class="term-green glow text-lg md:text-xl leading-relaxed mb-6">
+  ____                 _   ____   ____ ___ _____
+ | __ ) _   _ _ __ ___| |_|___ \ / ___|_ _|  ___|
+ |  _ \| | | | '__/ __| __| __) | |  _ | || |_
+ | |_) | |_| | |  \__ \ |_ / __/| |_| || ||  _|
+ |____/ \__,_|_|  |___/\__|_____|\____|___|_|
+</pre>
+
+          <div class="mb-2 term-bright text-lg font-bold">BURST2GIF <span class="term-dim">v2.0</span> <span class="term-amber">&mdash; Lightroom Classic Plugin</span></div>
+          <div class="mb-6 leading-relaxed">
+            <span class="term-bright">Convert burst photo sequences into smooth MP4 videos</span><br>
+            <span class="term-bright">or animated GIFs &mdash; directly from Lightroom,</span><br>
+            <span class="term-bright">preserving every edit you've made.</span>
+          </div>
+
+          <div class="mb-2 term-amber glow-amber font-bold">USAGE:</div>
+          <div class="ml-4 mb-8">
+            <span class="term-dim">1.</span> <span class="term-bright">Select photos in Lightroom</span><br>
+            <span class="term-dim">2.</span> <span class="term-bright">File &gt; Plug-in Extras &gt; Burst2GIF</span><br>
+            <span class="term-dim">3.</span> <span class="term-bright">Click Export</span><br>
+          </div>
+
+<pre class="text-sm term-dim mb-8">  ┌──────────────────────────────────────────┐
+  │                                          │
+  │    SELECT  &rarr;  CLICK  &rarr;  DONE             │
+  │                                          │
+  └──────────────────────────────────────────┘</pre>
+
+          <div class="flex flex-wrap gap-4">
+            <button class="btn-terminal">$ install --free [10 exports]</button>
+            <button class="btn-terminal btn-terminal-amber">$ buy --standard <span class="line-through opacity-50">$59</span> $39</button>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- FEATURES SECTION -->
+        <section class="mb-16">
+          <div class="prompt term-green mb-6">burst2gif --features</div>
+
+          <div class="space-y-8">
+            <div>
+              <div class="flex items-start gap-3">
+                <span class="term-green font-bold">--format</span>
+                <span class="term-dim">gif|mp4</span>
+              </div>
+              <div class="ml-8 mt-1">
+                <span class="term-bright font-bold">MP4 & GIF Export</span><br>
+                <span class="text-sm">Export to either format. High-quality output up to<br>6K resolution. Optimized for web and client delivery.</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-start gap-3">
+                <span class="term-green font-bold">--preview</span>
+                <span class="term-dim">live</span>
+              </div>
+              <div class="ml-8 mt-1">
+                <span class="term-bright font-bold">Live Preview</span><br>
+                <span class="text-sm">Real-time playback before export. Adjust timing,<br>crop, and see your Lightroom edits reflected instantly.</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-start gap-3">
+                <span class="term-amber font-bold">--fps</span>
+                <span class="term-dim">auto|&lt;number&gt;</span>
+              </div>
+              <div class="ml-8 mt-1">
+                <span class="term-bright font-bold">Auto-Detect FPS</span><br>
+                <span class="text-sm">Reads EXIF capture intervals. Calculates optimal<br>frame rate automatically. Manual override available.</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-start gap-3">
+                <span class="term-green font-bold">--platform</span>
+                <span class="term-dim">macos</span>
+              </div>
+              <div class="ml-8 mt-1">
+                <span class="term-bright font-bold">Native macOS</span><br>
+                <span class="text-sm">Built for Apple Silicon & Intel. Fast, native<br>performance. Zero external dependencies.</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-start gap-3">
+                <span class="term-amber font-bold">--detect</span>
+                <span class="term-dim">capture-time</span>
+              </div>
+              <div class="ml-8 mt-1">
+                <span class="term-bright font-bold">Smart Capture Time</span><br>
+                <span class="text-sm">Intelligently groups burst sequences by timestamp.<br>Works with any camera brand. Select range or auto.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- DEMO OUTPUT -->
+        <section class="mb-16">
+          <div class="prompt term-green mb-4">burst2gif --input ./wedding_burst/ --format gif --fps auto</div>
+          <div class="text-sm leading-relaxed">
+            <span class="term-dim">[info]</span> Scanning directory: ./wedding_burst/<br>
+            <span class="term-dim">[info]</span> Found <span class="term-bright">24 frames</span> (capture interval: 125ms)<br>
+            <span class="term-dim">[info]</span> Auto FPS: <span class="term-amber">8 fps</span><br>
+            <span class="term-dim">[info]</span> Applying Lightroom edits...<br>
+            <span class="term-dim">[info]</span> Rendering: <span class="term-green">[████████████████████████████████████]</span> 100%<br>
+            <span class="term-dim">[info]</span> <span class="term-green glow">&#10003; Exported: wedding_burst.gif (1.2MB, 3000ms)</span><br>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- TESTIMONIAL -->
+        <section class="mb-16">
+          <div class="prompt term-green mb-4">burst2gif --reviews --top 1</div>
+          <div class="text-sm leading-relaxed">
+            <span class="term-dim">[review]</span> <span class="term-amber">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="term-dim">5/5</span><br>
+            <br>
+            <span class="term-bright text-lg">&quot;This is a <span class="term-green glow font-bold">game-changer</span> for wedding galleries.&quot;</span><br>
+            <br>
+            <span class="term-dim">&mdash;</span> <span class="term-bright font-bold">Magda B.</span> <span class="term-dim">| Wedding Photographer</span><br>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- PRICING -->
+        <section class="mb-16">
+          <div class="prompt term-green mb-6">burst2gif --pricing</div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="border border-[#333] p-6">
+              <div class="text-sm mb-4">
+                <span class="term-dim">package:</span> <span class="term-bright">burst2gif@free</span><br>
+                <span class="term-dim">version:</span> <span class="term-bright">2.0.0</span><br>
+                <span class="term-dim">price:</span>   <span class="term-green font-bold text-lg">$0.00</span><br>
+                <span class="term-dim">license:</span> <span class="term-bright">trial (10 exports)</span>
+              </div>
+              <div class="text-sm mb-6">
+                <span class="term-dim">includes:</span><br>
+                <span class="ml-2 term-green">+</span> MP4 & GIF export<br>
+                <span class="ml-2 term-green">+</span> Live preview<br>
+                <span class="ml-2 term-green">+</span> Auto-detect FPS<br>
+                <span class="ml-2 text-red-500">!</span> <span class="term-dim">10 export limit</span>
+              </div>
+              <button class="btn-terminal w-full text-sm">$ install burst2gif@free</button>
+            </div>
+
+            <div class="border border-[#00ff41] p-6 relative">
+              <div class="absolute -top-px -right-px bg-[#00ff41] text-[#0c0c0c] text-xs font-bold px-3 py-1">RECOMMENDED</div>
+              <div class="text-sm mb-4">
+                <span class="term-dim">package:</span> <span class="term-bright">burst2gif@standard</span><br>
+                <span class="term-dim">version:</span> <span class="term-bright">2.0.0</span><br>
+                <span class="term-dim">price:</span>   <span class="term-green font-bold text-lg">$39.00</span> <span class="term-dim line-through">$59.00</span><br>
+                <span class="term-dim">license:</span> <span class="term-amber font-bold">lifetime</span>
+              </div>
+              <div class="text-sm mb-6">
+                <span class="term-dim">includes:</span><br>
+                <span class="ml-2 term-green">+</span> <span class="term-bright">Unlimited exports</span><br>
+                <span class="ml-2 term-green">+</span> <span class="term-bright">All features</span><br>
+                <span class="ml-2 term-green">+</span> <span class="term-bright">Free updates for life</span><br>
+                <span class="ml-2 term-green">+</span> <span class="term-bright">Priority support</span>
+              </div>
+              <button class="btn-terminal w-full text-sm">$ install burst2gif@standard</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- ABOUT -->
+        <section class="mb-12">
+          <div class="prompt term-green mb-4">burst2gif --about</div>
+          <div class="text-sm leading-relaxed">
+            <span class="term-bright font-bold">Built by a photographer, for photographers.</span><br>
+            <br>
+            <span>No subscriptions. No bloat. No Electron wrapper.</span><br>
+            <span>Just burst photos turned into beautiful motion.</span><br>
+            <br>
+            <span class="term-dim">Website:</span>  <a href="#">https://boost.photo</a><br>
+            <span class="term-dim">Support:</span>  <a href="#">support@boost.photo</a><br>
+            <span class="term-dim">Docs:</span>     <a href="#">https://docs.boost.photo</a><br>
+          </div>
+        </section>
+
+        <div class="border-t border-[#333] my-12"></div>
+
+        <!-- FINAL CTA -->
+        <section class="mb-8">
+          <div class="text-sm leading-relaxed mb-6">
+            <span class="term-amber glow-amber font-bold">Ready to get started?</span><br>
+            <br>
+            <span class="term-dim"># Choose your install method:</span>
+          </div>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <button class="btn-terminal">$ install --free</button>
+            <button class="btn-terminal btn-terminal-amber">$ buy --standard $39</button>
+          </div>
+          <div class="cursor text-sm"><span class="term-green">$</span> </div>
+        </section>
+
+      </div><!-- terminal-body -->
+    </div><!-- terminal -->
+
+    <!-- FOOTER (outside terminal) -->
+    <footer class="text-center py-8 text-xs term-dim">
+      &copy; 2026 boost.photo &mdash; All rights reserved &mdash;
+      <a href="#" class="term-dim hover:term-green">Docs</a> &middot;
+      <a href="#" class="term-dim hover:term-green">Support</a> &middot;
+      <a href="#" class="term-dim hover:term-green">Privacy</a>
+    </footer>
+  </div>
+
+</body>
+</html>

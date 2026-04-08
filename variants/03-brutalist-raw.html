@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burst2GIF — Burst to GIF in Lightroom</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"Space Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            paper: '#f5f5f0',
+            electric: '#2563eb',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .highlight {
+      background: #2563eb;
+      color: white;
+      padding: 0 0.15em;
+      display: inline;
+    }
+    .highlight-yellow {
+      background: #fef08a;
+      padding: 0 0.15em;
+      display: inline;
+    }
+    .border-brutal { border: 4px solid #000; }
+    .border-brutal-thin { border: 2px solid #000; }
+    .btn-brutal {
+      border: 4px solid #000;
+      background: #fff;
+      transition: none;
+    }
+    .btn-brutal:hover {
+      background: #000;
+      color: #fff;
+    }
+    .btn-brutal-filled {
+      border: 4px solid #000;
+      background: #000;
+      color: #fff;
+      transition: none;
+    }
+    .btn-brutal-filled:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+    .rotate-neg { transform: rotate(-2deg); }
+    .rotate-pos { transform: rotate(1.5deg); }
+    .offset-left { transform: translateX(-20px); }
+    .terminal-line::before {
+      content: '$ ';
+      color: #2563eb;
+      font-weight: 700;
+    }
+    .grid-exposed {
+      background-image:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .stamp {
+      border: 3px solid #dc2626;
+      color: #dc2626;
+      transform: rotate(-8deg);
+      font-family: 'Space Mono', monospace;
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body class="bg-paper text-black antialiased grid-exposed">
+
+  <!-- Nav -->
+  <nav class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <span class="font-mono text-xl font-bold tracking-tight">BURST2GIF_</span>
+      <div class="flex items-center gap-4">
+        <span class="stamp text-xs font-bold px-2 py-1 hidden sm:inline-block">LR PLUGIN</span>
+        <a href="#pricing" class="btn-brutal text-xs font-mono font-bold px-4 py-2 uppercase">Pricing</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Marquee -->
+  <div class="border-b-4 border-black overflow-hidden py-2 bg-electric text-white">
+    <div class="marquee-track">
+      <span class="font-mono text-sm font-bold whitespace-nowrap px-8">BURST &rarr; GIF &nbsp;&bull;&nbsp; BURST &rarr; MP4 &nbsp;&bull;&nbsp; 3 CLICKS &nbsp;&bull;&nbsp; LIGHTROOM CLASSIC &nbsp;&bull;&nbsp; macOS NATIVE &nbsp;&bull;&nbsp; NO SUBSCRIPTION &nbsp;&bull;&nbsp; BURST &rarr; GIF &nbsp;&bull;&nbsp; BURST &rarr; MP4 &nbsp;&bull;&nbsp; 3 CLICKS &nbsp;&bull;&nbsp; LIGHTROOM CLASSIC &nbsp;&bull;&nbsp; macOS NATIVE &nbsp;&bull;&nbsp; NO SUBSCRIPTION &nbsp;&bull;&nbsp;</span>
+      <span class="font-mono text-sm font-bold whitespace-nowrap px-8">BURST &rarr; GIF &nbsp;&bull;&nbsp; BURST &rarr; MP4 &nbsp;&bull;&nbsp; 3 CLICKS &nbsp;&bull;&nbsp; LIGHTROOM CLASSIC &nbsp;&bull;&nbsp; macOS NATIVE &nbsp;&bull;&nbsp; NO SUBSCRIPTION &nbsp;&bull;&nbsp; BURST &rarr; GIF &nbsp;&bull;&nbsp; BURST &rarr; MP4 &nbsp;&bull;&nbsp; 3 CLICKS &nbsp;&bull;&nbsp; LIGHTROOM CLASSIC &nbsp;&bull;&nbsp; macOS NATIVE &nbsp;&bull;&nbsp; NO SUBSCRIPTION &nbsp;&bull;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto px-6 pt-20 pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <div class="lg:col-span-9">
+          <h1 class="font-mono font-bold text-7xl sm:text-8xl lg:text-[9rem] leading-[0.85] tracking-tighter uppercase">
+            Burst<br>
+            to <span class="highlight">GIF</span><br>
+            <span class="text-5xl sm:text-6xl lg:text-7xl font-normal lowercase tracking-tight">in 3 clicks.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-3 pb-2">
+          <p class="text-base font-sans leading-relaxed text-neutral-600 mb-8">
+            Convert burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit.
+          </p>
+          <a href="#" class="btn-brutal-filled block text-center font-mono text-sm font-bold px-6 py-4 uppercase tracking-wider">
+            Download Free
+          </a>
+          <p class="font-mono text-[10px] text-neutral-400 mt-2 text-center">10 free exports</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Left: features list -->
+        <div class="border-b-4 md:border-b-0 md:border-r-4 border-black p-6 sm:p-10">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-electric mb-8">// Features</p>
+          <div class="space-y-6">
+            <div class="border-brutal-thin p-4 bg-white">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-electric font-bold text-lg leading-none mt-0.5">&rarr;</span>
+                <div>
+                  <p class="font-mono font-bold text-sm uppercase">MP4 &amp; GIF Export</p>
+                  <p class="text-sm text-neutral-500 mt-1 font-sans">Two formats, one workflow. Choose what fits.</p>
+                </div>
+              </div>
+            </div>
+            <div class="border-brutal-thin p-4 bg-white">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-electric font-bold text-lg leading-none mt-0.5">&rarr;</span>
+                <div>
+                  <p class="font-mono font-bold text-sm uppercase">Live Preview</p>
+                  <p class="text-sm text-neutral-500 mt-1 font-sans">See your animation before export. Adjust timing live.</p>
+                </div>
+              </div>
+            </div>
+            <div class="border-brutal-thin p-4 bg-white">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-electric font-bold text-lg leading-none mt-0.5">&rarr;</span>
+                <div>
+                  <p class="font-mono font-bold text-sm uppercase">Auto-Detect FPS</p>
+                  <p class="text-sm text-neutral-500 mt-1 font-sans">EXIF-based frame rate detection. Smart defaults.</p>
+                </div>
+              </div>
+            </div>
+            <div class="border-brutal-thin p-4 bg-white">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-electric font-bold text-lg leading-none mt-0.5">&rarr;</span>
+                <div>
+                  <p class="font-mono font-bold text-sm uppercase">Native macOS</p>
+                  <p class="text-sm text-neutral-500 mt-1 font-sans">Apple Silicon optimized. Fast, lean, no bloat.</p>
+                </div>
+              </div>
+            </div>
+            <div class="border-brutal-thin p-4 bg-white">
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-electric font-bold text-lg leading-none mt-0.5">&rarr;</span>
+                <div>
+                  <p class="font-mono font-bold text-sm uppercase">Smart Capture Time</p>
+                  <p class="text-sm text-neutral-500 mt-1 font-sans">Auto-groups burst sequences from metadata.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: terminal style -->
+        <div class="p-6 sm:p-10 bg-black text-green-400 font-mono text-sm">
+          <p class="text-neutral-500 mb-6">// How it works</p>
+          <div class="space-y-4">
+            <div>
+              <p class="terminal-line text-white">select burst_sequence</p>
+              <p class="text-neutral-600 ml-4">→ 24 photos detected (0.3s interval)</p>
+            </div>
+            <div>
+              <p class="terminal-line text-white">preview --fps auto</p>
+              <p class="text-neutral-600 ml-4">→ Playing at 8fps... looks smooth ✓</p>
+            </div>
+            <div>
+              <p class="terminal-line text-white">export --format gif</p>
+              <p class="text-neutral-600 ml-4">→ wedding_dance.gif (2.4MB) saved</p>
+              <p class="text-green-500 ml-4 mt-1">Done in 4.2s</p>
+            </div>
+          </div>
+          <div class="mt-10 pt-6 border-t border-neutral-800">
+            <p class="text-neutral-600 text-xs">// that's it. three commands. three clicks.</p>
+            <p class="text-neutral-600 text-xs">// your lightroom edits? preserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="max-w-3xl rotate-neg">
+        <div class="border-brutal bg-white p-8 sm:p-12">
+          <span class="font-mono text-6xl text-electric leading-none">&ldquo;</span>
+          <p class="font-sans text-2xl sm:text-3xl font-semibold leading-snug -mt-6">
+            This is a <span class="highlight-yellow">game-changer</span> for wedding galleries.
+          </p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 border-brutal-thin bg-electric text-white font-mono font-bold flex items-center justify-center text-sm">MB</div>
+            <div>
+              <p class="font-mono text-sm font-bold">Magda B.</p>
+              <p class="text-xs text-neutral-500 font-sans">Wedding Photographer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="border-b-4 md:border-b-0 md:border-r-4 border-black p-6 sm:p-12 flex flex-col justify-center">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-electric mb-4">// Pricing</p>
+          <p class="font-mono font-bold text-5xl sm:text-6xl uppercase tracking-tighter">
+            Pay once.<br>Keep forever.
+          </p>
+        </div>
+        <div class="p-6 sm:p-12">
+          <div class="border-brutal bg-white p-8">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono font-bold text-6xl">$39</span>
+              <span class="font-mono text-sm text-neutral-400 line-through">$59</span>
+            </div>
+            <p class="font-mono text-xs text-neutral-500 mt-1 uppercase tracking-wider">Standard License</p>
+            <div class="mt-6 space-y-2 font-sans text-sm text-neutral-600">
+              <p>* Unlimited exports</p>
+              <p>* MP4 + GIF formats</p>
+              <p>* 1 year free updates</p>
+              <p>* Email support</p>
+            </div>
+            <div class="mt-8 space-y-3">
+              <a href="#" class="btn-brutal-filled block text-center font-mono text-sm font-bold px-6 py-4 uppercase tracking-wider">
+                Buy Standard — $39
+              </a>
+              <a href="#" class="btn-brutal block text-center font-mono text-sm font-bold px-6 py-4 uppercase tracking-wider">
+                Try Free — 10 Exports
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="border-b-4 border-black">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="max-w-2xl">
+        <p class="font-mono text-xs font-bold uppercase tracking-widest text-electric mb-4">// About</p>
+        <p class="text-xl font-sans leading-relaxed text-neutral-600">
+          Built by <span class="font-semibold text-black">Marek Topolar</span> — photographer, 200+ weddings. Created Burst2GIF because making 20 GIFs took 2 hours.
+          <span class="highlight-yellow">Now 5&ndash;10 minutes.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+      <span class="font-mono text-xs text-neutral-400">&copy; 2026 boost.photo</span>
+      <span class="font-mono text-xs text-neutral-400">macOS / Lightroom Classic</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 title: "How to Export GIF from Photoshop: Complete Guide (And a 10-Second Alternative)"
 description: "Step-by-step Photoshop GIF export tutorial for photographers. Plus a faster alternative that skips Photoshop entirely."
 date: 2026-04-07
-image: "/assets/images/blog/lightroom-burst-dialog.jpg"
+image: "/assets/images/blog/photoshop-gif-export-guide.svg"
 imageAlt: "Creating a GIF from photo sequence in Photoshop timeline"
 tags: ["photoshop", "gif", "tutorial", "lightroom"]
 draft: false

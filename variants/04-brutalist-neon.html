@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burst2GIF — Burst to GIF in 3 Clicks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #000; color: #e5e5e5; }
+    .mono { font-family: 'Space Mono', monospace; }
+    .neon-green { color: #4ade80; }
+    .neon-pink { color: #ec4899; }
+    .glow-green { text-shadow: 0 0 20px #22c55e, 0 0 40px #22c55e66; }
+    .glow-pink { text-shadow: 0 0 20px #ec4899, 0 0 40px #ec489966; }
+    .border-neon { border: 3px solid #4ade80; }
+    .border-pink { border: 3px solid #ec4899; }
+    .btn-neon {
+      border: 3px solid #4ade80;
+      color: #4ade80;
+      background: transparent;
+      padding: 16px 32px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .btn-neon:hover {
+      background: #4ade80;
+      color: #000;
+      box-shadow: 0 0 30px #22c55e88, 0 0 60px #22c55e44;
+    }
+    .btn-pink {
+      border-color: #ec4899;
+      color: #ec4899;
+    }
+    .btn-pink:hover {
+      background: #ec4899;
+      color: #000;
+      box-shadow: 0 0 30px #ec489988, 0 0 60px #ec489944;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .cursor-blink::after {
+      content: '█';
+      animation: blink 1s infinite;
+      color: #4ade80;
+    }
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, -1px); }
+      80% { transform: translate(1px, 1px); }
+    }
+    .glitch-hover:hover { animation: glitch 0.3s ease; }
+    .thick-divider { height: 3px; background: #4ade80; }
+    pre { font-family: 'Space Mono', monospace; }
+    .scanline {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.015) 2px, rgba(0,255,65,0.015) 4px);
+      pointer-events: none; z-index: 9999;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="border-b-[3px] border-neutral-800 px-6 py-4 flex items-center justify-between">
+    <div class="mono font-bold text-xl neon-green glow-green glitch-hover">BURST2GIF</div>
+    <div class="flex gap-6 items-center mono text-sm">
+      <a href="#features" class="text-neutral-400 hover:text-white transition">FEATURES</a>
+      <a href="#pricing" class="text-neutral-400 hover:text-white transition">PRICING</a>
+      <span class="border-neon px-4 py-2 neon-green text-xs hover:bg-[#4ade80] hover:text-black transition cursor-pointer">DOWNLOAD</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="px-6 py-24 max-w-5xl mx-auto">
+    <div class="mb-6">
+      <span class="mono text-xs border-pink px-3 py-1 neon-pink uppercase tracking-widest">Lightroom Classic Plugin</span>
+    </div>
+
+    <pre class="text-neutral-600 text-sm mb-4 leading-relaxed">┌─────────────────────────────────────────────────────┐
+│  SELECT → CLICK → DONE                              │
+└─────────────────────────────────────────────────────┘</pre>
+
+    <h1 class="mono font-bold text-5xl md:text-7xl leading-tight mb-8">
+      <span class="neon-green glow-green">Burst to GIF</span><br>
+      <span class="text-white">in 3 Clicks.</span><br>
+      <span class="text-neutral-500">Right Inside</span><br>
+      <span class="neon-pink glow-pink">Lightroom.</span>
+    </h1>
+
+    <p class="text-neutral-400 text-lg max-w-2xl mb-4 leading-relaxed">
+      Convert burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit you've made.
+    </p>
+
+    <pre class="mono text-sm neon-green mb-12 leading-relaxed">$ burst2gif --input ./burst_0421/ --format gif --fps auto
+<span class="text-neutral-600">[████████████████████████████████████] 100%</span>
+<span class="text-neutral-400">→ exported: burst_0421.gif (24 frames, 320ms)</span>
+<span class="cursor-blink">$ </span></pre>
+
+    <div class="flex flex-wrap gap-4">
+      <button class="btn-neon glitch-hover">DOWNLOAD FREE — 10 EXPORTS</button>
+      <button class="btn-neon btn-pink glitch-hover">
+        BUY STANDARD <span class="line-through text-neutral-500">$59</span> $39
+      </button>
+    </div>
+  </section>
+
+  <div class="thick-divider max-w-5xl mx-auto"></div>
+
+  <!-- FEATURES -->
+  <section id="features" class="px-6 py-24 max-w-5xl mx-auto">
+    <h2 class="mono font-bold text-3xl mb-4 neon-green glow-green">// FEATURES</h2>
+    <p class="text-neutral-500 mono text-sm mb-16">/* everything you need, nothing you don't */</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="border-neon p-6 hover:bg-[#4ade8008] transition">
+        <pre class="mono text-sm neon-green mb-3">$ --format gif|mp4</pre>
+        <h3 class="mono font-bold text-xl text-white mb-2">MP4 & GIF Export</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Export to either format with a single flag. High-quality output up to 6K resolution, ready for web or client delivery.</p>
+      </div>
+
+      <div class="border-pink p-6 hover:bg-[#ec489908] transition">
+        <pre class="mono text-sm neon-pink mb-3">$ --preview live</pre>
+        <h3 class="mono font-bold text-xl text-white mb-2">Live Preview</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">See your GIF play back in real-time before exporting. Adjust timing, crop, and edits on the fly.</p>
+      </div>
+
+      <div class="border-pink p-6 hover:bg-[#ec489908] transition">
+        <pre class="mono text-sm neon-pink mb-3">$ --fps auto</pre>
+        <h3 class="mono font-bold text-xl text-white mb-2">Auto-Detect FPS</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Reads EXIF capture intervals and calculates the optimal frame rate automatically. No manual guesswork.</p>
+      </div>
+
+      <div class="border-neon p-6 hover:bg-[#4ade8008] transition">
+        <pre class="mono text-sm neon-green mb-3">$ --platform macos</pre>
+        <h3 class="mono font-bold text-xl text-white mb-2">Native macOS</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Built for Apple Silicon and Intel. Fast, native performance with zero external dependencies.</p>
+      </div>
+
+      <div class="border-neon p-6 hover:bg-[#4ade8008] transition md:col-span-2">
+        <pre class="mono text-sm neon-green mb-3">$ --detect capture-time</pre>
+        <h3 class="mono font-bold text-xl text-white mb-2">Smart Capture Time</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed">Intelligently groups burst sequences by capture timestamp. Select a range or let the plugin figure it out.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="thick-divider max-w-5xl mx-auto" style="background: #ec4899;"></div>
+
+  <!-- SOCIAL PROOF -->
+  <section class="px-6 py-24 max-w-5xl mx-auto">
+    <div class="border-[3px] border-neutral-800 p-8 md:p-12 relative">
+      <div class="absolute -top-4 left-6 bg-black px-4 mono text-sm text-neutral-500">// TESTIMONIAL</div>
+      <pre class="mono text-neutral-600 text-xs mb-6">stdout:</pre>
+      <blockquote class="mono text-2xl md:text-3xl font-bold text-white leading-snug mb-6">
+        "<span class="neon-pink glow-pink">This is a game-changer</span> for wedding galleries."
+      </blockquote>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 border-pink flex items-center justify-center mono font-bold neon-pink text-lg">MB</div>
+        <div>
+          <div class="mono font-bold text-white">Magda B.</div>
+          <div class="mono text-sm text-neutral-500">Wedding Photographer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="px-6 py-24 max-w-5xl mx-auto">
+    <h2 class="mono font-bold text-3xl mb-12 neon-green glow-green">// PRICING</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="border-[3px] border-neutral-700 p-8">
+        <pre class="mono text-sm text-neutral-500 mb-4">package: burst2gif@free</pre>
+        <div class="mono font-bold text-4xl text-white mb-2">$0</div>
+        <div class="mono text-sm text-neutral-500 mb-6">10 exports included</div>
+        <ul class="space-y-2 mb-8">
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> MP4 & GIF export</li>
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> Live preview</li>
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> Auto-detect FPS</li>
+          <li class="mono text-sm text-neutral-500"><span class="text-neutral-700">-</span> Limited to 10 exports</li>
+        </ul>
+        <button class="btn-neon w-full text-sm">$ INSTALL --FREE</button>
+      </div>
+
+      <div class="border-neon p-8 relative">
+        <div class="absolute -top-3 right-6 bg-[#4ade80] text-black mono text-xs font-bold px-3 py-1">RECOMMENDED</div>
+        <pre class="mono text-sm neon-green mb-4">package: burst2gif@standard</pre>
+        <div class="mono font-bold text-4xl text-white mb-2">
+          $39 <span class="text-2xl line-through text-neutral-600">$59</span>
+        </div>
+        <div class="mono text-sm text-neutral-500 mb-6">lifetime license — one-time payment</div>
+        <ul class="space-y-2 mb-8">
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> Unlimited exports</li>
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> All features included</li>
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> Free updates for life</li>
+          <li class="mono text-sm text-neutral-400"><span class="neon-green">+</span> Priority support</li>
+        </ul>
+        <button class="btn-neon w-full text-sm">$ INSTALL --STANDARD [ENTER]</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="thick-divider max-w-5xl mx-auto"></div>
+
+  <!-- ABOUT -->
+  <section class="px-6 py-24 max-w-5xl mx-auto text-center">
+    <pre class="mono text-neutral-700 text-sm mb-8">
+ ██████  ██    ██ ██████  ███████ ████████ ██████   ██████  ██ ███████
+ ██   ██ ██    ██ ██   ██ ██         ██         ██ ██       ██ ██
+ ██████  ██    ██ ██████  ███████    ██     █████  ██   ███ ██ █████
+ ██   ██ ██    ██ ██   ██      ██    ██    ██      ██    ██ ██ ██
+ ██████   ██████  ██   ██ ███████    ██    ███████  ██████  ██ ██
+    </pre>
+    <p class="mono text-xl text-neutral-400 mb-2">Built by a photographer, for photographers.</p>
+    <p class="text-neutral-600 text-sm">No subscriptions. No bloat. Just burst photos turned into motion.</p>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="px-6 py-24 max-w-5xl mx-auto text-center">
+    <pre class="mono neon-green glow-green text-lg mb-8 cursor-blink">$ burst2gif --start</pre>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button class="btn-neon glitch-hover">DOWNLOAD FREE</button>
+      <button class="btn-neon btn-pink glitch-hover">BUY STANDARD $39</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t-[3px] border-neutral-800 px-6 py-8">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="mono text-sm text-neutral-600">&copy; 2026 boost.photo // All rights reserved</div>
+      <div class="flex gap-6 mono text-sm">
+        <a href="#" class="text-neutral-600 hover:neon-green transition">DOCS</a>
+        <a href="#" class="text-neutral-600 hover:neon-green transition">SUPPORT</a>
+        <a href="#" class="text-neutral-600 hover:neon-green transition">PRIVACY</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

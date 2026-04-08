@@ -1,0 +1,52 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af" />
+      <stop offset="100%" style="stop-color:#06b6d4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="150" r="200" fill="rgba(255,255,255,0.04)" />
+  <circle cx="150" cy="480" r="220" fill="rgba(255,255,255,0.03)" />
+  <rect x="80" y="420" width="100" height="100" rx="8" fill="rgba(255,255,255,0.05)" transform="rotate(15, 130, 470)" />
+  <rect x="140" y="440" width="80" height="80" rx="6" fill="rgba(255,255,255,0.04)" transform="rotate(-10, 180, 480)" />
+
+  <!-- Decorative lines -->
+  <line x1="80" y1="180" x2="220" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="3" />
+  <line x1="80" y1="195" x2="150" y2="195" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+
+  <!-- Photoshop-like grid decoration -->
+  <rect x="950" y="380" width="180" height="120" rx="6" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+  <line x1="950" y1="420" x2="1130" y2="420" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  <line x1="950" y1="460" x2="1130" y2="460" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  <line x1="1010" y1="380" x2="1010" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+  <line x1="1070" y1="380" x2="1070" y2="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+
+  <!-- Small dots -->
+  <circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="130" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="160" cy="100" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="100" cy="130" r="3" fill="rgba(255,255,255,0.1)" />
+  <circle cx="130" cy="130" r="3" fill="rgba(255,255,255,0.1)" />
+
+  <!-- Category pill -->
+  <rect x="535" y="140" width="130" height="32" rx="16" fill="rgba(255,255,255,0.15)" />
+  <text x="600" y="162" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.85)" letter-spacing="1">PHOTOSHOP</text>
+
+  <!-- Title text -->
+  <text x="600" y="245" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="48" fill="white" letter-spacing="-0.5">
+    <tspan x="600" dy="0">How to Export GIF from Photoshop:</tspan>
+    <tspan x="600" dy="64">Complete Guide (And a</tspan>
+    <tspan x="600" dy="64">10-Second Alternative)</tspan>
+  </text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(0,0,0,0.2)" />
+
+  <!-- boost.photo branding -->
+  <text x="1160" y="610" text-anchor="end" font-family="Inter, sans-serif" font-weight="500" font-size="18" fill="rgba(255,255,255,0.6)">boost.photo</text>
+</svg>

@@ -2,7 +2,7 @@
 title: "Lightroom Video Export: Everything Photographers Need to Know"
 description: "What Lightroom Classic can and can't do with video. Plus how to create MP4 videos from your photos without leaving Lightroom."
 date: 2026-04-02
-image: "/assets/images/demo-poster.jpg"
+image: "/assets/images/blog/lightroom-video-export-guide.svg"
 imageAlt: "MP4 video exported from burst photos in Lightroom"
 tags: ["lightroom", "video", "mp4", "export"]
 draft: false
