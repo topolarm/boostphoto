@@ -74,6 +74,12 @@ The bouquet toss gives you something rare: action *and* reaction in the same seq
 
 **Tip:** Burst at the highest FPS your camera offers. The bouquet moves fast, and having 20+ frames gives you the option to create a slightly slow-motion GIF by playing back at a lower FPS than you captured. Captured at 20fps, played back at 10fps = smooth 2x slow motion.
 
+<div style="background: linear-gradient(to right, #4f46e5, #4338ca); border-radius: 12px; padding: 24px; margin: 40px 0; text-align: center;">
+  <p style="color: white; font-weight: 600; font-size: 18px; margin: 0 0 8px 0;">Turn your burst photos into GIFs in 10 seconds.</p>
+  <p style="color: #c7d2fe; font-size: 14px; margin: 0 0 16px 0;">Free version — 10 exports, no credit card needed.</p>
+  <a href="/#pricing" style="display: inline-block; background: white; color: #4338ca; font-weight: 600; font-size: 14px; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Try Burst2GIF Free</a>
+</div>
+
 ## 6. Cake Cutting
 
 Lower energy than confetti or bouquets, but the cake cutting has a charm that works well as a short, sweet GIF.

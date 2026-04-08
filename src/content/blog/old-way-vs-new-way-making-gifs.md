@@ -159,6 +159,12 @@ For a wedding with 20 burst sequences: **3-5 minutes total.** Not 5-7 hours. Min
 
 The numbers aren't subtle. This isn't a 20% improvement. It's a fundamental workflow change that turns a multi-hour chore into a few minutes of work you barely notice.
 
+<div style="background: linear-gradient(to right, #4f46e5, #4338ca); border-radius: 12px; padding: 24px; margin: 40px 0; text-align: center;">
+  <p style="color: white; font-weight: 600; font-size: 18px; margin: 0 0 8px 0;">Turn your burst photos into GIFs in 10 seconds.</p>
+  <p style="color: #c7d2fe; font-size: 14px; margin: 0 0 16px 0;">Free version — 10 exports, no credit card needed.</p>
+  <a href="/#pricing" style="display: inline-block; background: white; color: #4338ca; font-weight: 600; font-size: 14px; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Try Burst2GIF Free</a>
+</div>
+
 ## Real Numbers From Real Weddings
 
 In early 2025, I decided that animated moments would be part of every wedding delivery. Living photos were the missing piece in my gallery presentations, and clients were already reacting strongly to the few I'd made experimentally.

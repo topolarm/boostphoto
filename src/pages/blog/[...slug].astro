@@ -82,27 +82,31 @@ const related = allPosts
       <!-- Content -->
       <div class="prose prose-lg prose-slate max-w-none
         prose-headings:font-bold prose-headings:tracking-tight
-        prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pt-8 prose-h2:border-t prose-h2:border-slate-200
         prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
         prose-p:text-slate-600 prose-p:leading-relaxed
         prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline
         prose-img:rounded-xl prose-img:shadow-lg
         prose-strong:text-slate-900
-        prose-table:text-sm
-        prose-th:bg-slate-50 prose-th:p-3
+        prose-blockquote:border-indigo-400 prose-blockquote:bg-indigo-50/50 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:pr-4 prose-blockquote:not-italic
+        prose-table:text-sm prose-table:border prose-table:border-slate-200 prose-table:rounded-lg prose-table:overflow-hidden
+        prose-th:bg-slate-100 prose-th:p-3 prose-th:text-left prose-th:font-semibold
         prose-td:p-3 prose-td:border-slate-200
-      ">
+        prose-li:text-slate-600
+        prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+        prose-hr:border-slate-200 prose-hr:my-10
+      " id="article-content">
         <Content />
       </div>
 
-      <!-- CTA -->
-      <BlogCTA />
+      <!-- Final CTA -->
+      <BlogCTA variant="full" />
 
       <!-- Related Posts -->
       {related.length > 0 && (
         <div class="mt-16 pt-10 border-t border-slate-200">
           <h2 class="text-2xl font-bold text-slate-900 mb-6">Related Articles</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {related.map(p => (
               <BlogCard
                 title={p.data.title}

@@ -134,6 +134,12 @@ Most wedding burst shooting is handheld. Here's how to keep it stable:
 
 If your burst has minor shake, software can sometimes fix it. Burst2GIF doesn't include built-in stabilization, but you can align your frames manually in Lightroom before export: sync the crop across all frames, adjusting slightly per frame to center the subject. It's tedious for large sets but effective for a few frames.
 
+<div style="background: linear-gradient(to right, #4f46e5, #4338ca); border-radius: 12px; padding: 24px; margin: 40px 0; text-align: center;">
+  <p style="color: white; font-weight: 600; font-size: 18px; margin: 0 0 8px 0;">Turn your burst photos into GIFs in 10 seconds.</p>
+  <p style="color: #c7d2fe; font-size: 14px; margin: 0 0 16px 0;">Free version — 10 exports, no credit card needed.</p>
+  <a href="/#pricing" style="display: inline-block; background: white; color: #4338ca; font-weight: 600; font-size: 14px; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Try Burst2GIF Free</a>
+</div>
+
 ## How Many Photos Per Burst?
 
 This question comes up constantly. Here's the breakdown:

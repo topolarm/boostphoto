@@ -174,6 +174,12 @@ If you want to make 15 GIFs from a wedding (confetti, first dance, exit, bouquet
 
 The finished GIF lives in some random folder. It's not in your Lightroom catalog. It doesn't have the correct capture time. If you want it alongside your wedding photos, you have to manually import it and manually adjust the metadata so it sorts in the right place.
 
+<div style="background: linear-gradient(to right, #4f46e5, #4338ca); border-radius: 12px; padding: 24px; margin: 40px 0; text-align: center;">
+  <p style="color: white; font-weight: 600; font-size: 18px; margin: 0 0 8px 0;">Turn your burst photos into GIFs in 10 seconds.</p>
+  <p style="color: #c7d2fe; font-size: 14px; margin: 0 0 16px 0;">Free version — 10 exports, no credit card needed.</p>
+  <a href="/#pricing" style="display: inline-block; background: white; color: #4338ca; font-weight: 600; font-size: 14px; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Try Burst2GIF Free</a>
+</div>
+
 ## The 10-Second Alternative: Burst2GIF
 
 After spending years doing the Photoshop dance, I built a Lightroom Classic plugin that does the entire process in 3 steps and 10 seconds. No Photoshop needed.

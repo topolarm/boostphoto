@@ -120,6 +120,12 @@ When Burst2GIF creates an MP4, it sets the file's creation timestamp to match th
 
 No more manually dragging the video to the right position between the ceremony and reception photos. It just lands where it belongs.
 
+<div style="background: linear-gradient(to right, #4f46e5, #4338ca); border-radius: 12px; padding: 24px; margin: 40px 0; text-align: center;">
+  <p style="color: white; font-weight: 600; font-size: 18px; margin: 0 0 8px 0;">Turn your burst photos into GIFs in 10 seconds.</p>
+  <p style="color: #c7d2fe; font-size: 14px; margin: 0 0 16px 0;">Free version — 10 exports, no credit card needed.</p>
+  <a href="/#pricing" style="display: inline-block; background: white; color: #4338ca; font-weight: 600; font-size: 14px; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Try Burst2GIF Free</a>
+</div>
+
 ## Frequently Asked Questions
 
 ### Which Lightroom versions are supported?
