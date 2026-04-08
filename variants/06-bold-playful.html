@@ -8,13 +8,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    colors: { accent: '#4f46e5' }
+                    colors: {
+                        accent: '#2563eb',
+                        coral: '#f97316',
+                        mint: '#10b981'
+                    },
+                    borderRadius: {
+                        '4xl': '2rem'
+                    }
                 }
             }
         }
@@ -23,14 +30,18 @@
         * { font-family: 'Inter', system-ui, sans-serif; }
         .fade-in { animation: fadeIn 0.6s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        h1, h2, h3 { font-weight: 900 !important; }
+        section:nth-child(even) { background: #eff6ff; }
+        section:nth-child(3n) { background: #fff7ed; }
+        section:nth-child(4n) { background: #ecfdf5; }
     </style>
 </head>
-<body class="bg-white text-slate-900 antialiased">
+<body class="bg-white text-slate-900 antialiased" style="--accent: #2563eb;">
 
     <!-- NAV -->
-    <nav class="border-b border-slate-100">
-        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="/" class="text-lg font-semibold tracking-tight text-slate-900">Burst<span class="text-accent">2</span>GIF</a>
+    <nav class="border-b-4 border-accent">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-black tracking-tight text-slate-900">Burst<span class="text-accent">2</span>GIF</a>
             <div class="hidden md:flex items-center gap-8 text-sm text-slate-500">
                 <a href="#how-it-works" class="hover:text-slate-900 transition">How It Works</a>
                 <a href="#features" class="hover:text-slate-900 transition">Features</a>
@@ -44,9 +55,9 @@
     <!-- HERO -->
     <section class="pt-24 pb-20 lg:pt-36 lg:pb-28">
         <div class="max-w-5xl mx-auto px-6 text-center fade-in">
-            <p class="text-sm font-medium text-accent tracking-wide uppercase mb-8">Lightroom Classic Plugin</p>
+            <p class="inline-block px-5 py-2 text-sm font-bold text-white bg-accent rounded-full mb-8 uppercase tracking-wider">Lightroom Classic Plugin</p>
 
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08] mb-8">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 leading-[1.05] mb-8">
                 Burst to GIF in 3 Clicks.<br>
                 <span class="text-accent">Right Inside Lightroom.</span>
             </h1>

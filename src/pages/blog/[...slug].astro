@@ -43,10 +43,13 @@ const related = allPosts
       "headline": post.data.title,
       "description": post.data.description,
       "datePublished": post.data.date.toISOString(),
+      "dateModified": post.data.date.toISOString(),
+      "wordCount": (post.body || '').split(/\s+/).length,
       "image": post.data.image.startsWith('http') ? post.data.image : `https://boost.photo${post.data.image}`,
-      "author": { "@type": "Person", "name": "Marek Topolar" },
-      "publisher": { "@type": "Organization", "name": "boost.photo" },
-      "url": `https://boost.photo/blog/${post.id}`
+      "author": { "@type": "Person", "name": "Marek Topolar", "url": "https://boost.photo/about" },
+      "publisher": { "@type": "Organization", "name": "boost.photo", "url": "https://boost.photo", "logo": { "@type": "ImageObject", "url": "https://boost.photo/favicon.svg" } },
+      "url": `https://boost.photo/blog/${post.id}`,
+      "mainEntityOfPage": `https://boost.photo/blog/${post.id}`
     })} />
   </Fragment>
 

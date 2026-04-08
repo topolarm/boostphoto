@@ -1,0 +1,38 @@
+# Burst2GIF by boost.photo
+
+> Burst2GIF is a Lightroom Classic plugin for macOS that converts burst photo sequences into smooth MP4 videos or animated GIFs directly inside Lightroom. It preserves all Lightroom edits, auto-detects FPS from EXIF data, supports up to 6K resolution, and reduces the burst-to-animation workflow from 8+ minutes to 10 seconds. Priced at $39 one-time (lifetime license) with a free tier of 10 exports.
+
+## Key Facts
+
+- **Product**: Burst2GIF Lightroom Classic Plugin
+- **Website**: https://boost.photo
+- **Developer**: Marek Topolar, wedding photographer with 200+ weddings
+- **Platform**: macOS only (Windows planned)
+- **Pricing**: Free (10 exports, 1500px max) or $39 lifetime (unlimited exports, 6K)
+- **Category**: Photography software, Lightroom plugin, multimedia tool
+- **Use cases**: Wedding photography, family portraits, wildlife, sports, time-lapses, stop-motion
+
+## How It Works
+
+1. Select burst photos in Lightroom's Library module
+2. Click Export and preview the animation with adjustable FPS
+3. Export as MP4 (H.264) or GIF — optionally import back to Lightroom with correct capture time
+
+## Pages
+
+- [Homepage](https://boost.photo/): Product overview, features, pricing, FAQ
+- [About](https://boost.photo/about): Story behind the product, developer background
+- [Blog](https://boost.photo/blog): Photography tutorials and guides
+
+## Blog Articles
+
+- [How to Convert Burst Photos to GIF](https://boost.photo/blog/burst-photos-to-gif-guide)
+- [Photoshop GIF Export Guide](https://boost.photo/blog/photoshop-gif-export-guide)
+- [Lightroom GIF How-To](https://boost.photo/blog/lightroom-gif-how-to)
+- [Lightroom Video Export Guide](https://boost.photo/blog/lightroom-video-export-guide)
+- [GIF Wedding Photo Gallery Guide](https://boost.photo/blog/gif-wedding-photo-gallery-guide)
+- [GIF vs MP4 for Photography](https://boost.photo/blog/gif-vs-mp4-photography)
+- [Old Way vs New Way of Making GIFs](https://boost.photo/blog/old-way-vs-new-way-making-gifs)
+- [Best Wedding Moments for Burst Photos](https://boost.photo/blog/best-wedding-moments-for-burst-photos)
+- [How to Shoot Burst Photos for GIFs](https://boost.photo/blog/how-to-shoot-burst-photos-for-gifs)
+- [Cinemagraph Photography Guide](https://boost.photo/blog/cinemagraph-photography-guide)

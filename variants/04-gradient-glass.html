@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burst2GIF — Create GIF & Video from Burst Photos in Lightroom | No Photoshop Needed</title>
+    <meta name="description" content="Lightroom Classic plugin that converts burst photo sequences into smooth MP4 videos or animated GIFs. No Photoshop needed. Preserves all your edits. macOS. $39 lifetime.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .glass-dark {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .glass-strong {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
+        }
+        .orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(99,102,241,0.15); }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-50 via-white to-violet-50 text-slate-900 antialiased">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 glass-strong">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="/" class="text-xl font-bold gradient-text">Burst2GIF</a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <a href="#how-it-works" class="hover:text-indigo-600 transition">How It Works</a>
+            <a href="#features" class="hover:text-indigo-600 transition">Features</a>
+            <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+            <a href="#faq" class="hover:text-indigo-600 transition">FAQ</a>
+        </div>
+        <a href="#pricing" class="btn-gradient px-5 py-2 text-sm font-semibold text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition">Get Started</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="py-16 lg:py-24 relative overflow-hidden">
+    <div class="orb w-[500px] h-[500px] bg-indigo-300 -top-40 -right-40"></div>
+    <div class="orb w-[400px] h-[400px] bg-violet-300 bottom-0 -left-40"></div>
+    <div class="orb w-[300px] h-[300px] bg-purple-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center">
+            <span class="inline-block px-5 py-2 mb-8 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                Lightroom Classic Plugin
+            </span>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                Burst to GIF in 3 Clicks.<br>
+                <span class="gradient-text">Right Inside Lightroom.</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed mb-10">
+                Burst2GIF converts burst photo sequences into smooth MP4 videos
+                or animated GIFs &mdash; directly from Lightroom, preserving every edit you've made.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold text-white btn-gradient rounded-2xl shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition">
+                    Download Free - 10 exports
+                </a>
+                <a href="https://burst2gif.lemonsqueezy.com/buy/single" class="w-full sm:w-auto px-8 py-3.5 text-base font-semibold text-slate-900 bg-amber-400 rounded-2xl hover:bg-amber-300 transition shadow-lg shadow-amber-200">
+                    Buy Standard $39 <span class="text-sm line-through opacity-70">$59</span>
+                </a>
+            </div>
+
+            <p class="text-sm text-slate-500">
+                macOS &middot; Lightroom Classic &middot; No subscription
+            </p>
+        </div>
+
+        <!-- Demo Video -->
+        <div class="mt-16 max-w-4xl mx-auto">
+            <div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl glass p-1" id="demo-video-container">
+                <div class="rounded-2xl overflow-hidden w-full h-full">
+                    <video id="demo-video" class="w-full h-full object-cover" muted playsinline controlsList="nodownload" preload="metadata" poster="/assets/images/demo-poster.jpg">
+                        <source src="/assets/videos/demo.mp4" type="video/mp4">
+                    </video>
+                    <div id="demo-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer group" onclick="playDemoVideo()">
+                        <div class="text-center">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-12 h-12 text-indigo-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <p class="text-white font-semibold text-lg">Play our Demo video</p>
+                            <p class="text-white/80 text-lg mt-1">(26 seconds)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROBLEM & SOLUTION -->
+<section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900"></div>
+    <div class="orb w-[400px] h-[400px] bg-indigo-600 top-0 right-0 opacity-20"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-slate-900 bg-amber-400 rounded-full">
+                The Problem
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                You already shot the perfect burst.<br>
+                Why should sharing it be so hard?
+            </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-stretch justify-center gap-4 mb-12">
+            <div class="flex-1 p-5 glass-dark rounded-2xl text-center card-hover">
+                <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <span class="text-red-400 font-bold">1</span>
+                </div>
+                <h3 class="text-base font-semibold text-white">Export 30+ JPEGs to folder</h3>
+            </div>
+            <div class="hidden lg:flex items-center justify-center text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flex-1 p-5 glass-dark rounded-2xl text-center card-hover">
+                <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <span class="text-red-400 font-bold">2</span>
+                </div>
+                <h3 class="text-base font-semibold text-white">Open separate video editor</h3>
+            </div>
+            <div class="hidden lg:flex items-center justify-center text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flex-1 p-5 glass-dark rounded-2xl text-center card-hover">
+                <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <span class="text-red-400 font-bold">3</span>
+                </div>
+                <h3 class="text-base font-semibold text-white">10 min of timeline work</h3>
+            </div>
+            <div class="hidden lg:flex items-center justify-center text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </div>
+            <div class="flex-1 p-5 glass-dark rounded-2xl text-center card-hover">
+                <div class="w-10 h-10 mx-auto mb-3 rounded-xl bg-red-500/20 flex items-center justify-center">
+                    <span class="text-red-400 font-bold">4</span>
+                </div>
+                <h3 class="text-base font-semibold text-white">Export &amp; set correct capture time</h3>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-400 mb-8">
+                <svg class="w-6 h-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </div>
+
+            <div class="max-w-2xl mx-auto p-8 rounded-3xl shadow-xl" style="background: linear-gradient(135deg, rgba(99,102,241,0.9), rgba(139,92,246,0.9)); backdrop-filter: blur(20px);">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-400 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-emerald-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white">With Burst2GIF</h3>
+                </div>
+                <p class="text-lg text-indigo-100 mb-6">
+                    Select photos in Lightroom &rarr; Click export &rarr; Done.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
+                    <span class="px-3 py-1.5 bg-white/20 text-white rounded-full backdrop-blur">10 seconds</span>
+                    <span class="px-3 py-1.5 bg-white/20 text-white rounded-full backdrop-blur">No video editor</span>
+                    <span class="px-3 py-1.5 bg-white/20 text-white rounded-full backdrop-blur">Edits preserved</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="orb w-[500px] h-[500px] bg-violet-200 -top-60 -left-60"></div>
+    <div class="orb w-[400px] h-[400px] bg-indigo-200 bottom-0 right-0"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                How It Works
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                Three clicks. Ten seconds. Done.
+            </h2>
+        </div>
+
+        <div class="space-y-16 lg:space-y-24">
+            <!-- Step 1 -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-2xl btn-gradient text-white font-bold text-lg shadow-lg shadow-indigo-200">1</span>
+                        <h3 class="text-xl md:text-2xl font-semibold text-slate-900">Select</h3>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Choose your burst photos in Lightroom's Library module.
+                        Any sequence works &mdash; 10 photos or 100. As many as you want.
+                    </p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="glass rounded-3xl p-2">
+                        <video class="w-full rounded-2xl" autoplay muted loop playsinline>
+                            <source src="/assets/videos/1choose.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-amber-400 text-slate-900 font-bold text-lg shadow-lg shadow-amber-200">2</span>
+                        <h3 class="text-xl md:text-2xl font-semibold text-slate-900">Preview and settings</h3>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        See your animation playing before you export.
+                        Adjust FPS in real-time or let the plugin detect it automatically.
+                    </p>
+                </div>
+                <div class="order-1">
+                    <div class="glass rounded-3xl p-2">
+                        <video class="w-full rounded-2xl" autoplay muted loop playsinline>
+                            <source src="/assets/videos/2preview.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-2xl bg-emerald-500 text-white font-bold text-lg shadow-lg shadow-emerald-200">3</span>
+                        <h3 class="text-xl md:text-2xl font-semibold text-slate-900">Export</h3>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Choose MP4 or GIF. Export to any folder, or import back to Lightroom
+                        automatically with the correct capture time.
+                    </p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="glass rounded-3xl p-2">
+                        <video class="w-full rounded-2xl" autoplay muted loop playsinline>
+                            <source src="/assets/videos/3export.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES - BENTO GRID -->
+<section id="features" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-violet-50"></div>
+    <div class="orb w-[300px] h-[300px] bg-purple-200 top-20 right-20"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                Features
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                Everything you need. Nothing you don't.
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <!-- Feature 1 - MP4 & GIF -->
+            <div class="col-span-2 p-6 rounded-3xl shadow-lg card-hover" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                <div class="flex items-start gap-4">
+                    <div class="text-4xl">&#127916;</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">MP4 & GIF Export</h3>
+                        <p class="text-indigo-100">H.264 codec for universal compatibility. Up to 6K resolution.</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full backdrop-blur">H.264</span>
+                            <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full backdrop-blur">6K</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 - Live Preview -->
+            <div class="col-span-1 p-6 glass rounded-3xl card-hover">
+                <div class="text-3xl mb-4">&#128065;</div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Live Preview</h3>
+                <p class="text-slate-600 text-sm">See your animation before export. Adjust FPS in real-time.</p>
+            </div>
+
+            <!-- Feature 3 - Auto FPS -->
+            <div class="col-span-1 p-6 bg-amber-400/80 backdrop-blur rounded-3xl card-hover">
+                <div class="text-3xl mb-4">&#9889;</div>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">Auto-Detect FPS</h3>
+                <p class="text-slate-700 text-sm">Reads SubSecTime from EXIF. Perfect timing, automatically.</p>
+            </div>
+
+            <!-- Feature 4 - macOS native -->
+            <div class="col-span-2 p-6 glass rounded-3xl card-hover" style="border-color: rgba(99,102,241,0.3);">
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">&#63743;</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Native on macOS</h3>
+                        <p class="text-slate-600 text-sm">Plug &amp; play. No extra software needed. Just install and go.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 5 - Correct Capture Time -->
+            <div class="col-span-2 p-6 glass rounded-3xl card-hover">
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">&#128197;</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Smart Capture Time</h3>
+                        <p class="text-slate-600 text-sm">Auto-sets correct timestamp based on your burst sequence. MP4 export only.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bonus - Wide stats bar -->
+            <div class="col-span-2 lg:col-span-4 p-8 rounded-3xl shadow-lg" style="background: linear-gradient(135deg, #6366f1, #8b5cf6, #f59e0b);">
+                <p class="text-center text-xl md:text-2xl font-semibold text-white">
+                    Save up to 90% of your time creating MP4/GIF animations from your photos
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PERFECT FOR -->
+<section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="orb w-[400px] h-[400px] bg-indigo-200 -bottom-40 -left-40"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                Use Cases
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                Perfect for
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex flex-col">
+                <h3 class="text-lg font-semibold text-slate-900 text-center mb-3">Weddings &amp; Couples</h3>
+                <div class="p-4 glass rounded-3xl">
+                    <video class="w-full aspect-square object-cover rounded-2xl lazy-video" muted loop playsinline preload="none" data-src="/assets/videos/wedding.mp4"></video>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h3 class="text-lg font-semibold text-slate-900 text-center mb-3">Family, pets, kids</h3>
+                <div class="p-4 glass rounded-3xl">
+                    <video class="w-full aspect-square object-cover rounded-2xl lazy-video" muted loop playsinline preload="none" data-src="/assets/videos/family-pets.mp4"></video>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h3 class="text-lg font-semibold text-slate-900 text-center mb-3">Wildlife</h3>
+                <div class="p-4 glass rounded-3xl">
+                    <video class="w-full aspect-square object-cover rounded-2xl lazy-video" muted loop playsinline preload="none" data-src="/assets/videos/wildlife.mp4"></video>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h3 class="text-lg font-semibold text-slate-900 text-center mb-3">Sports</h3>
+                <div class="p-4 glass rounded-3xl">
+                    <video class="w-full aspect-square object-cover rounded-2xl lazy-video" muted loop playsinline preload="none" data-src="/assets/videos/sport.mp4"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-indigo-50"></div>
+    <div class="orb w-[300px] h-[300px] bg-violet-300 top-20 left-10 opacity-30"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                Testimonials
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                Loved by photographers worldwide
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div class="p-6 glass-strong rounded-3xl card-hover">
+                <div class="flex items-center gap-1 mb-4">
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    "During family sessions, I can now quickly deliver GIFs that totally bring the gallery to life. My clients are always thrilled, and the value of my work has skyrocketed. Plus, they're perfect for social media!"
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-semibold">ET</div>
+                    <div>
+                        <p class="text-slate-900 font-medium">Eliska Topolarova</p>
+                        <p class="text-sm text-slate-500">Family Photographer, Brno</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 glass-strong rounded-3xl card-hover">
+                <div class="flex items-center gap-1 mb-4">
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    "This is a game-changer for wedding galleries. Before, I needed 3-4 different apps and about 15 minutes to make one GIF. Now it takes seconds. I deliver better service in less time."
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-semibold">MB</div>
+                    <div>
+                        <p class="text-slate-900 font-medium">Magda Blaha</p>
+                        <p class="text-sm text-slate-500">Wedding Photographer, Brno</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT / CREDENTIALS -->
+<section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="orb w-[350px] h-[350px] bg-indigo-200 top-0 right-20 opacity-30"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 glass-strong rounded-3xl p-8 md:p-12">
+            <img src="/assets/images/marek-topolar.webp" alt="Marek Topolar" class="w-40 h-40 md:w-48 md:h-48 rounded-3xl object-cover shadow-lg flex-shrink-0">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                    Built by a photographer, for photographers.
+                </h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-4">
+                    I'm Marek Topolar &mdash; a wedding photographer from Brno. I built Burst2GIF because making 20 GIFs for one wedding took me <strong>2 hours</strong>. Now it takes <strong>5&ndash;10 minutes</strong>. I use it on every shoot.
+                </p>
+                <a href="/about" class="text-indigo-600 font-semibold hover:text-indigo-500 transition">
+                    Read the full story &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #6366f1, #7c3aed, #8b5cf6);"></div>
+    <div class="orb w-[500px] h-[500px] bg-white top-0 left-0 opacity-10"></div>
+    <div class="orb w-[400px] h-[400px] bg-violet-300 bottom-0 right-0 opacity-20"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-indigo-600 bg-white rounded-full shadow-lg">
+                Pricing
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+                One payment. Yours forever.
+            </h2>
+            <p class="text-lg text-indigo-100">
+                No subscriptions. No recurring fees. Free updates for life.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+            <!-- FREE -->
+            <div class="p-6 lg:p-8 glass-strong rounded-3xl">
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">FREE</h3>
+                <div class="text-4xl font-bold text-slate-900 mb-2">$0</div>
+                <p class="text-slate-600 mb-6">Try before you buy</p>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        10 exports
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        1500px max
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        MP4 + GIF
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Live preview
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Auto FPS
+                    </li>
+                </ul>
+
+                <a href="https://burst2gif.lemonsqueezy.com/buy/free" class="block w-full py-3 text-center text-sm font-semibold text-slate-700 bg-slate-100 rounded-2xl hover:bg-slate-200 transition">
+                    Download Free for Mac
+                </a>
+            </div>
+
+            <!-- STANDARD -->
+            <div class="p-6 lg:p-8 bg-white rounded-3xl shadow-2xl relative ring-4 ring-amber-400">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-xs font-semibold text-slate-900 bg-amber-400 rounded-full">
+                    LAUNCH PRICE
+                </span>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">STANDARD</h3>
+                <div class="flex items-baseline gap-2 mb-2">
+                    <span class="text-lg text-slate-400 line-through">$59</span>
+                    <span class="text-4xl font-bold text-slate-900">$39</span>
+                    <span class="text-slate-500">lifetime</span>
+                </div>
+                <p class="text-slate-600 mb-6">Unlimited exports forever</p>
+
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Unlimited exports
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        6K resolution
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Import back to Lightroom
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-700">
+                        <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Priority support
+                    </li>
+                </ul>
+
+                <a href="https://burst2gif.lemonsqueezy.com/buy/single" class="block w-full py-3.5 text-center text-base font-semibold text-slate-900 bg-amber-400 rounded-2xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/30">
+                    Buy Now for Mac $39 <span class="text-sm font-normal line-through opacity-70">$59</span>
+                </a>
+            </div>
+        </div>
+
+        <p class="text-center text-indigo-100 mt-8 max-w-xl mx-auto">
+            Try the free version first. No credit card required.
+            10 exports, no watermarks, no time limit.
+        </p>
+        <p class="text-center text-indigo-200/70 mt-4 text-sm">
+            On Windows? The Windows version is on the way &mdash;
+            <a href="mailto:hello@boost.photo?subject=Windows%20version%20interest" class="text-white underline hover:no-underline">let us know you're interested</a>
+            and we'll notify you when it's ready.
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="orb w-[400px] h-[400px] bg-violet-200 -top-40 right-0 opacity-30"></div>
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block px-5 py-2 mb-6 text-sm font-semibold text-white btn-gradient rounded-full shadow-lg shadow-indigo-200">
+                FAQ
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                Questions? Answers.
+            </h2>
+        </div>
+
+        <div id="accordion-faq" class="space-y-3">
+            <!-- Q1 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-1">
+                    <span>Can I use any images in Lightroom?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-1" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Yes! It doesn't have to be a burst sequence from your camera. You can use any images in your Lightroom catalog that you want to turn into an animation &mdash; time-lapses, stop-motion, or any creative sequence you can imagine.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-2">
+                    <span>What cameras are supported?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-2" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Any camera that can shoot burst mode. Burst2GIF reads timing information from EXIF metadata (SubSecTimeOriginal) when available. If your camera doesn't record millisecond timestamps, you can manually set the FPS.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-3">
+                    <span>What about Windows?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-3" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Burst2GIF is currently available for macOS only. A Windows version is on the roadmap &mdash; if you'd like to be notified when it's ready, drop us a line at <a href="mailto:hello@boost.photo" class="text-indigo-600 hover:text-indigo-500">hello@boost.photo</a>.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-4">
+                    <span>Which Lightroom versions are supported?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-4" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Lightroom Classic 10.0 and newer. This plugin does NOT work with Lightroom CC (the cloud-based version) or Lightroom mobile.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-5">
+                    <span>What's the difference between MP4 and GIF?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-5" class="hidden">
+                    <div class="py-4 px-6 text-slate-600"><strong>MP4</strong> is a video format with excellent quality and small file sizes. Best for social media, websites, and client galleries. <strong>GIF</strong> is an animated image format that plays automatically everywhere without a play button. Great for quick previews and messaging apps, but larger file sizes and limited to 256 colors.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-6">
+                    <span>Can I control the playback speed / FPS?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-6" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Yes! You can either let the plugin auto-detect FPS from your camera's EXIF data, or manually set any frame rate you want. The live preview shows you exactly how it will look before you export.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-7">
+                    <span>Is this a subscription?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-7" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">No. It's a one-time payment for a lifetime license. You pay once and use the plugin forever, including all future updates.</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-8">
+                    <span>What's your refund policy?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-8" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Due to the nature of digital products, we don't offer refunds. That's why we encourage you to try the free version first &mdash; you get 10 full exports to make sure it works perfectly for your workflow. If you love the free version, you'll love Standard even more!</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <h3><button type="button" class="accordion-toggle flex items-center justify-between w-full py-5 px-6 text-left font-semibold text-slate-700 hover:text-indigo-600 transition" aria-expanded="false" aria-controls="accordion-body-9">
+                    <span>How do I install the plugin?</span>
+                    <svg class="accordion-icon w-5 h-5 shrink-0 transition-transform text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button></h3>
+                <div id="accordion-body-9" class="hidden">
+                    <div class="py-4 px-6 text-slate-600">Just like any Lightroom plugin: Go to <strong>File &rarr; Plug-in Manager</strong>, click <strong>Add</strong>, and select the Burst2GIF.lrplugin folder. That's it! The plugin will appear in your Library menu.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900"></div>
+    <div class="orb w-[600px] h-[600px] bg-indigo-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+    <div class="orb w-[300px] h-[300px] bg-amber-400 bottom-0 right-0 opacity-15"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+            Your next gallery could have photos that move.
+        </h2>
+        <p class="text-lg md:text-xl text-slate-300 mb-10">
+            Download the free version, create your first GIF in under 2 minutes, and see the difference yourself.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a href="#pricing" class="w-full sm:w-auto px-10 py-4 text-lg font-semibold text-slate-900 bg-amber-400 rounded-2xl hover:bg-amber-300 transition shadow-lg shadow-amber-400/30 hover:shadow-amber-400/50">
+                Download Free &mdash; 10 exports, no credit card
+            </a>
+        </div>
+        <p class="text-sm text-slate-400 mb-12">
+            macOS &middot; Lightroom Classic
+        </p>
+
+        <div class="max-w-2xl mx-auto text-left border-t border-slate-700 pt-8">
+            <p class="text-slate-400 leading-relaxed">
+                <strong class="text-slate-300">P.S.</strong> &mdash; Still on the fence? Think about your next wedding or family session. How many burst sequences will you shoot? 5? 10? 20? Without Burst2GIF, each one is 8-10 minutes of exporting, switching apps, and re-importing. With it, each one is 10 seconds. The free version gives you 10 exports to prove it. No credit card, no time limit.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 bg-slate-900 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2025 Burst2GIF by <a href="https://boost.photo" class="text-slate-400 hover:text-white transition">boost.photo</a>. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function playDemoVideo() {
+        var video = document.getElementById('demo-video');
+        var overlay = document.getElementById('demo-overlay');
+        overlay.style.display = 'none';
+        video.controls = true;
+        video.play();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var lazyVideos = document.querySelectorAll('.lazy-video');
+        var videoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var video = entry.target;
+                    var src = video.dataset.src;
+                    if (src) {
+                        video.innerHTML = '<source src="' + src + '" type="video/mp4">';
+                        video.load();
+                        video.play();
+                    }
+                    videoObserver.unobserve(video);
+                }
+            });
+        }, { rootMargin: '100px' });
+        lazyVideos.forEach(function(video) { videoObserver.observe(video); });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var buttons = document.querySelectorAll('.accordion-toggle');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var targetId = this.getAttribute('aria-controls');
+                var target = document.getElementById(targetId);
+                var icon = this.querySelector('.accordion-icon');
+                var isExpanded = this.getAttribute('aria-expanded') === 'true';
+                if (isExpanded) {
+                    target.classList.add('hidden');
+                    this.setAttribute('aria-expanded', 'false');
+                    if (icon) icon.style.transform = '';
+                } else {
+                    target.classList.remove('hidden');
+                    this.setAttribute('aria-expanded', 'true');
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

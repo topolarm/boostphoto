@@ -31,8 +31,20 @@ const canonical = canonicalUrl || Astro.url.href;
 
     <title>{title}</title>
     <meta name="description" content={description}>
+    <meta name="author" content="Marek Topolar">
     {noindex && <meta name="robots" content="noindex">}
     <link rel="canonical" href={canonical}>
+
+    <!-- Organization schema (site-wide) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "boost.photo",
+      "url": "https://boost.photo",
+      "logo": "https://boost.photo/favicon.svg",
+      "email": "hello@boost.photo",
+      "founder": { "@type": "Person", "name": "Marek Topolar" }
+    })} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
