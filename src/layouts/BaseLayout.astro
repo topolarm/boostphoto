@@ -60,15 +60,22 @@ const canonical = canonicalUrl || Astro.url.href;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter (async, non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+
+    <!-- DNS prefetch for external services -->
+    <link rel="dns-prefetch" href="//burst2gif.lemonsqueezy.com">
+    <link rel="dns-prefetch" href="//googletagmanager.com">
 
     <slot name="head" />
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
-    <slot />
+    <main>
+        <slot />
+    </main>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 border-t border-slate-700 p-4 transform translate-y-full transition-transform duration-300">
