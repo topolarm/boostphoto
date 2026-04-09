@@ -1,0 +1,357 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "Burst2GIF by boost.photo" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e7]:
+          - link "How it works" [ref=e8] [cursor=pointer]:
+            - /url: /#how-it-works
+          - link "Features" [ref=e9] [cursor=pointer]:
+            - /url: /#features
+          - link "Pricing" [ref=e10] [cursor=pointer]:
+            - /url: /#pricing
+          - link "FAQ" [ref=e11] [cursor=pointer]:
+            - /url: /#faq
+          - link "Blog" [ref=e12] [cursor=pointer]:
+            - /url: /blog
+          - link "About" [ref=e13] [cursor=pointer]:
+            - /url: /about
+          - link "Get Started" [ref=e14] [cursor=pointer]:
+            - /url: /#pricing
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Lightroom Classic Plugin
+        - heading "Burst to GIF in 3 Clicks. Right Inside Lightroom." [level=1] [ref=e22]:
+          - text: Burst to GIF in 3 Clicks.
+          - text: Right Inside Lightroom.
+        - paragraph [ref=e23]: Burst2GIF converts burst photo sequences into smooth MP4 videos or animated GIFs — directly from Lightroom, preserving every edit you've made.
+        - generic [ref=e24]:
+          - link "Download Free - 10 exports" [ref=e25] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "Buy Standard $39 $59" [ref=e26] [cursor=pointer]:
+            - /url: https://burst2gif.lemonsqueezy.com/buy/single
+        - paragraph [ref=e27]: macOS · Lightroom Classic · No subscription
+      - generic [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - paragraph [ref=e36]: Play our Demo video
+        - paragraph [ref=e37]: (26 seconds)
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]: The Problem
+        - heading "You already shot the perfect burst. Why should sharing it be so hard?" [level=2] [ref=e42]:
+          - text: You already shot the perfect burst.
+          - text: Why should sharing it be so hard?
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e46]: "1"
+          - heading "Export 30+ JPEGs to folder" [level=3] [ref=e47]
+        - img [ref=e49]
+        - generic [ref=e51]:
+          - generic [ref=e53]: "2"
+          - heading "Open separate video editor" [level=3] [ref=e54]
+        - img [ref=e56]
+        - generic [ref=e58]:
+          - generic [ref=e60]: "3"
+          - heading "10 min of timeline work" [level=3] [ref=e61]
+        - img [ref=e63]
+        - generic [ref=e65]:
+          - generic [ref=e67]: "4"
+          - heading "Export & set correct capture time" [level=3] [ref=e68]
+      - generic [ref=e69]:
+        - img [ref=e71]
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - img [ref=e76]
+            - heading "With Burst2GIF" [level=3] [ref=e78]
+          - paragraph [ref=e79]: Select photos in Lightroom → Click export → Done.
+          - generic [ref=e80]:
+            - generic [ref=e81]: 10 seconds
+            - generic [ref=e82]: No video editor
+            - generic [ref=e83]: Edits preserved
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]: How It Works
+        - heading "Three clicks. Ten seconds. Done." [level=2] [ref=e88]
+      - generic [ref=e89]:
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e93]: "1"
+            - heading "Select" [level=3] [ref=e94]
+          - paragraph [ref=e95]: Choose your burst photos in Lightroom's Library module. Any sequence works — 10 photos or 100. As many as you want.
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: "2"
+            - heading "Preview and settings" [level=3] [ref=e102]
+          - paragraph [ref=e103]: See your animation playing before you export. Adjust FPS in real-time or let the plugin detect it automatically.
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: "3"
+            - heading "Export" [level=3] [ref=e110]
+          - paragraph [ref=e111]: Choose MP4 or GIF. Export to any folder, or import back to Lightroom automatically with the correct capture time.
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]: Features
+        - heading "Everything you need. Nothing you don't." [level=2] [ref=e118]
+      - generic [ref=e119]:
+        - generic [ref=e121]:
+          - generic [ref=e122]: 🎬
+          - generic [ref=e123]:
+            - heading "MP4 & GIF Export" [level=3] [ref=e124]
+            - paragraph [ref=e125]: H.264 codec for universal compatibility. Up to 6K resolution.
+            - generic [ref=e126]:
+              - generic [ref=e127]: H.264
+              - generic [ref=e128]: 6K
+        - generic [ref=e129]:
+          - generic [ref=e130]: 👁
+          - heading "Live Preview" [level=3] [ref=e131]
+          - paragraph [ref=e132]: See your animation before export. Adjust FPS in real-time.
+        - generic [ref=e133]:
+          - generic [ref=e134]: ⚡
+          - heading "Auto-Detect FPS" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Reads SubSecTime from EXIF. Perfect timing, automatically.
+        - generic [ref=e138]:
+          - generic [ref=e139]: 
+          - generic [ref=e140]:
+            - heading "Native on macOS" [level=3] [ref=e141]
+            - paragraph [ref=e142]: Plug & play. No extra software needed. Just install and go.
+        - generic [ref=e144]:
+          - generic [ref=e145]: 📅
+          - generic [ref=e146]:
+            - heading "Smart Capture Time" [level=3] [ref=e147]
+            - paragraph [ref=e148]: Auto-sets correct timestamp based on your burst sequence. MP4 export only.
+        - paragraph [ref=e150]: Save up to 90% of your time creating MP4/GIF animations from your photos
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]: Use Cases
+        - heading "Perfect for" [level=2] [ref=e155]
+      - generic [ref=e156]:
+        - heading "Weddings & Couples" [level=3] [ref=e158]
+        - heading "Family, pets, kids" [level=3] [ref=e162]
+        - heading "Wildlife" [level=3] [ref=e166]
+        - heading "Sports" [level=3] [ref=e170]
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]: Testimonials
+        - heading "Loved by photographers worldwide" [level=2] [ref=e177]
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - img [ref=e181]
+            - img [ref=e183]
+            - img [ref=e185]
+            - img [ref=e187]
+            - img [ref=e189]
+          - paragraph [ref=e191]: "\"During family sessions, I can now quickly deliver GIFs that totally bring the gallery to life. My clients are always thrilled, and the value of my work has skyrocketed. Plus, they're perfect for social media!\""
+          - generic [ref=e192]:
+            - generic [ref=e193]: ET
+            - generic [ref=e194]:
+              - paragraph [ref=e195]: Eliska Topolarova
+              - paragraph [ref=e196]: Family Photographer, Brno
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - img [ref=e199]
+            - img [ref=e201]
+            - img [ref=e203]
+            - img [ref=e205]
+            - img [ref=e207]
+          - paragraph [ref=e209]: "\"This is a game-changer for wedding galleries. Before, I needed 3-4 different apps and about 15 minutes to make one GIF. Now it takes seconds. I deliver better service in less time.\""
+          - generic [ref=e210]:
+            - generic [ref=e211]: MB
+            - generic [ref=e212]:
+              - paragraph [ref=e213]: Magda Blaha
+              - paragraph [ref=e214]: Wedding Photographer, Brno
+    - generic [ref=e217]:
+      - img "Marek Topolar" [ref=e218]
+      - generic [ref=e219]:
+        - heading "Built by a photographer, for photographers." [level=2] [ref=e220]
+        - paragraph [ref=e221]:
+          - text: I'm Marek Topolar — a wedding photographer from Brno. I built Burst2GIF because making 20 GIFs for one wedding took me
+          - strong [ref=e222]: 2 hours
+          - text: . Now it takes
+          - strong [ref=e223]: 5–10 minutes
+          - text: . I use it on every shoot.
+        - link "Read the full story →" [ref=e224] [cursor=pointer]:
+          - /url: /about
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - generic [ref=e228]: Pricing
+        - heading "One payment. Yours forever." [level=2] [ref=e229]
+        - paragraph [ref=e230]: No subscriptions. No recurring fees. Free updates for life.
+      - generic [ref=e231]:
+        - generic [ref=e232]:
+          - heading "FREE" [level=3] [ref=e233]
+          - generic [ref=e234]: $0
+          - paragraph [ref=e235]: Try before you buy
+          - list [ref=e236]:
+            - listitem [ref=e237]:
+              - img [ref=e238]
+              - text: 10 exports
+            - listitem [ref=e240]:
+              - img [ref=e241]
+              - text: 1500px max
+            - listitem [ref=e243]:
+              - img [ref=e244]
+              - text: MP4 + GIF
+            - listitem [ref=e246]:
+              - img [ref=e247]
+              - text: Live preview
+            - listitem [ref=e249]:
+              - img [ref=e250]
+              - text: Auto FPS
+          - link "Download Free for Mac" [ref=e252] [cursor=pointer]:
+            - /url: https://burst2gif.lemonsqueezy.com/buy/free
+        - generic [ref=e253]:
+          - generic [ref=e254]: LAUNCH PRICE
+          - heading "STANDARD" [level=3] [ref=e255]
+          - generic [ref=e256]:
+            - generic [ref=e257]: $59
+            - generic [ref=e258]: $39
+            - generic [ref=e259]: lifetime
+          - paragraph [ref=e260]: Unlimited exports forever
+          - list [ref=e261]:
+            - listitem [ref=e262]:
+              - img [ref=e263]
+              - text: Unlimited exports
+            - listitem [ref=e265]:
+              - img [ref=e266]
+              - text: 6K resolution
+            - listitem [ref=e268]:
+              - img [ref=e269]
+              - text: Import back to Lightroom
+            - listitem [ref=e271]:
+              - img [ref=e272]
+              - text: Priority support
+          - link "Buy Now for Mac $39 $59" [ref=e274] [cursor=pointer]:
+            - /url: https://burst2gif.lemonsqueezy.com/buy/single
+      - paragraph [ref=e275]: Try the free version first. No credit card required. 10 exports, no watermarks, no time limit.
+      - paragraph [ref=e276]:
+        - text: On Windows? The Windows version is on the way —
+        - link "let us know you're interested" [ref=e277] [cursor=pointer]:
+          - /url: mailto:hello@boost.photo?subject=Windows%20version%20interest
+        - text: and we'll notify you when it's ready.
+    - generic [ref=e279]:
+      - generic [ref=e280]:
+        - generic [ref=e281]: FAQ
+        - heading "Questions? Answers." [level=2] [ref=e282]
+      - generic [ref=e283]:
+        - heading "Can I use any images in Lightroom?" [level=3] [ref=e284]:
+          - button "Can I use any images in Lightroom?" [ref=e285]:
+            - generic [ref=e286]: Can I use any images in Lightroom?
+            - img [ref=e287]
+        - heading "What cameras are supported?" [level=3] [ref=e289]:
+          - button "What cameras are supported?" [ref=e290]:
+            - generic [ref=e291]: What cameras are supported?
+            - img [ref=e292]
+        - heading "What about Windows?" [level=3] [ref=e294]:
+          - button "What about Windows?" [ref=e295]:
+            - generic [ref=e296]: What about Windows?
+            - img [ref=e297]
+        - heading "Which Lightroom versions are supported?" [level=3] [ref=e299]:
+          - button "Which Lightroom versions are supported?" [ref=e300]:
+            - generic [ref=e301]: Which Lightroom versions are supported?
+            - img [ref=e302]
+        - heading "What's the difference between MP4 and GIF?" [level=3] [ref=e304]:
+          - button "What's the difference between MP4 and GIF?" [ref=e305]:
+            - generic [ref=e306]: What's the difference between MP4 and GIF?
+            - img [ref=e307]
+        - heading "Can I control the playback speed / FPS?" [level=3] [ref=e309]:
+          - button "Can I control the playback speed / FPS?" [ref=e310]:
+            - generic [ref=e311]: Can I control the playback speed / FPS?
+            - img [ref=e312]
+        - heading "Is this a subscription?" [level=3] [ref=e314]:
+          - button "Is this a subscription?" [ref=e315]:
+            - generic [ref=e316]: Is this a subscription?
+            - img [ref=e317]
+        - heading "What's your refund policy?" [level=3] [ref=e319]:
+          - button "What's your refund policy?" [ref=e320]:
+            - generic [ref=e321]: What's your refund policy?
+            - img [ref=e322]
+        - heading "How do I install the plugin?" [level=3] [ref=e324]:
+          - button "How do I install the plugin?" [ref=e325]:
+            - generic [ref=e326]: How do I install the plugin?
+            - img [ref=e327]
+    - generic [ref=e330]:
+      - generic [ref=e331]:
+        - generic [ref=e332]: Blog
+        - heading "Tips & Tutorials for Photographers" [level=2] [ref=e333]
+        - paragraph [ref=e334]: Guides on burst photography, GIF creation, and delivering motion to your clients.
+      - generic [ref=e335]:
+        - 'link "Burst2GIF plugin dialog in Lightroom Classic showing burst photo export settings burst-photos gif lightroom Burst to GIF: The Complete Guide to Turning Burst Photos into Smooth Animations Apr 8, 2026 Learn 3 ways to convert burst photos into GIFs and MP4 videos. Compare Photoshop, online tools, and the fastest method — directly from Lightroom." [ref=e336] [cursor=pointer]':
+          - /url: /blog/burst-photos-to-gif-guide
+          - img "Burst2GIF plugin dialog in Lightroom Classic showing burst photo export settings" [ref=e337]
+          - generic [ref=e338]:
+            - generic [ref=e339]:
+              - generic [ref=e340]: burst-photos
+              - generic [ref=e341]: gif
+              - generic [ref=e342]: lightroom
+            - 'heading "Burst to GIF: The Complete Guide to Turning Burst Photos into Smooth Animations" [level=3] [ref=e343]'
+            - paragraph [ref=e344]: Apr 8, 2026
+            - paragraph [ref=e345]: Learn 3 ways to convert burst photos into GIFs and MP4 videos. Compare Photoshop, online tools, and the fastest method — directly from Lightroom.
+        - 'link "Creating a GIF from photo sequence in Photoshop timeline photoshop gif tutorial How to Export GIF from Photoshop: Complete Guide (And a 10-Second Alternative) Apr 7, 2026 Step-by-step Photoshop GIF export tutorial for photographers. Plus a faster alternative that skips Photoshop entirely." [ref=e346] [cursor=pointer]':
+          - /url: /blog/photoshop-gif-export-guide
+          - img "Creating a GIF from photo sequence in Photoshop timeline" [ref=e347]
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - generic [ref=e350]: photoshop
+              - generic [ref=e351]: gif
+              - generic [ref=e352]: tutorial
+            - 'heading "How to Export GIF from Photoshop: Complete Guide (And a 10-Second Alternative)" [level=3] [ref=e353]'
+            - paragraph [ref=e354]: Apr 7, 2026
+            - paragraph [ref=e355]: Step-by-step Photoshop GIF export tutorial for photographers. Plus a faster alternative that skips Photoshop entirely.
+        - 'link "Burst photo sequence selected in Lightroom Classic burst-photos camera-settings photography-tips How to Shoot Burst Photos for Perfect GIFs: A Photographer''s Guide Apr 6, 2026 Camera settings, shooting techniques, and best practices for capturing burst sequences that make smooth, professional GIFs." [ref=e356] [cursor=pointer]':
+          - /url: /blog/how-to-shoot-burst-photos-for-gifs
+          - img "Burst photo sequence selected in Lightroom Classic" [ref=e357]
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - generic [ref=e360]: burst-photos
+              - generic [ref=e361]: camera-settings
+              - generic [ref=e362]: photography-tips
+            - 'heading "How to Shoot Burst Photos for Perfect GIFs: A Photographer''s Guide" [level=3] [ref=e363]'
+            - paragraph [ref=e364]: Apr 6, 2026
+            - paragraph [ref=e365]: Camera settings, shooting techniques, and best practices for capturing burst sequences that make smooth, professional GIFs.
+        - link "Burst2GIF plugin interface inside Lightroom Classic lightroom gif workflow How to Make a GIF in Lightroom (Yes, It's Actually Possible Now) Apr 5, 2026 Lightroom can't export GIFs natively. Here are 3 workarounds — including one that does it in 10 seconds without leaving Lightroom." [ref=e366] [cursor=pointer]:
+          - /url: /blog/lightroom-gif-how-to
+          - img "Burst2GIF plugin interface inside Lightroom Classic" [ref=e367]
+          - generic [ref=e368]:
+            - generic [ref=e369]:
+              - generic [ref=e370]: lightroom
+              - generic [ref=e371]: gif
+              - generic [ref=e372]: workflow
+            - heading "How to Make a GIF in Lightroom (Yes, It's Actually Possible Now)" [level=3] [ref=e373]
+            - paragraph [ref=e374]: Apr 5, 2026
+            - paragraph [ref=e375]: Lightroom can't export GIFs natively. Here are 3 workarounds — including one that does it in 10 seconds without leaving Lightroom.
+      - link "View all articles →" [ref=e377] [cursor=pointer]:
+        - /url: /blog
+    - generic [ref=e381]:
+      - heading "Your next gallery could have photos that move." [level=2] [ref=e382]
+      - paragraph [ref=e383]: Download the free version, create your first GIF in under 2 minutes, and see the difference yourself.
+      - link "Download Free — 10 exports, no credit card" [ref=e385] [cursor=pointer]:
+        - /url: "#pricing"
+      - paragraph [ref=e386]: macOS · Lightroom Classic
+      - paragraph [ref=e388]:
+        - strong [ref=e389]: P.S.
+        - text: — Still on the fence? Think about your next wedding or family session. How many burst sequences will you shoot? 5? 10? 20? Without Burst2GIF, each one is 8-10 minutes of exporting, switching apps, and re-importing. With it, each one is 10 seconds. The free version gives you 10 exports to prove it. No credit card, no time limit.
+    - generic [ref=e392]:
+      - link "Burst2GIF by boost.photo" [ref=e393] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e394]:
+        - link "Privacy Policy" [ref=e395] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e396] [cursor=pointer]:
+          - /url: /terms
+        - link "Blog" [ref=e397] [cursor=pointer]:
+          - /url: /blog
+        - link "Support" [ref=e398] [cursor=pointer]:
+          - /url: mailto:hello@boost.photo
+      - paragraph [ref=e399]: © 2025 boost.photo · Marek Topolar
+      - paragraph [ref=e400]: hello@boost.photo
+      - paragraph [ref=e401]: Adobe and Lightroom are registered trademarks of Adobe Inc. This product is not affiliated with or endorsed by Adobe.
+  - generic [ref=e403]:
+    - paragraph [ref=e404]:
+      - text: We use cookies for analytics (Google Analytics) and fonts (Google Fonts).
+      - link "Privacy Policy" [ref=e405] [cursor=pointer]:
+        - /url: /privacy
+    - generic [ref=e406]:
+      - button "Decline" [ref=e407]
+      - button "Accept" [ref=e408]
