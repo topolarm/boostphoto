@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import BlogCTA from '../../components/BlogCTA.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 import { getCollection, render } from 'astro:content';
 import { getReadingTime } from '../../utils/reading-time';
 import '../../styles/global.css';
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const readingTime = getReadingTime(post.body || '');
 
 // Related posts: same tags, excluding current
@@ -81,6 +82,9 @@ const related = allPosts
         class="w-full rounded-2xl mb-10 shadow-lg"
         loading="eager"
       />
+
+      <!-- Table of Contents -->
+      <TableOfContents headings={headings} />
 
       <!-- Content -->
       <div class="prose prose-lg prose-slate max-w-none
