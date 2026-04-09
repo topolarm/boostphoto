@@ -61,6 +61,9 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
         {"@type": "Question", "name": "Is Burst2GIF a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a one-time payment of $39 for a lifetime license, including all future updates. There is also a free version with 10 exports."}}
       ]
     })} />
+    <!-- Preload LCP image -->
+    <link rel="preload" href="/assets/images/demo-poster-sm.webp" as="image" type="image/webp" media="(max-width: 768px)">
+    <link rel="preload" href="/assets/images/demo-poster.webp" as="image" type="image/webp" media="(min-width: 769px)">
   </Fragment>
 
   <Nav />
@@ -109,7 +112,7 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
           <!-- Demo Video -->
           <div class="mt-16 max-w-4xl mx-auto">
               <div class="relative aspect-video rounded-2xl border border-slate-300 overflow-hidden shadow-2xl" id="demo-video-container">
-                  <video id="demo-video" class="w-full h-full object-cover" muted playsinline controlsList="nodownload" preload="none" poster="/assets/images/demo-poster.webp">
+                  <video id="demo-video" class="w-full h-full object-cover" muted playsinline controlsList="nodownload" preload="none" poster="/assets/images/demo-poster-sm.webp">
                       <source src="/assets/videos/demo.mp4" type="video/mp4">
                   </video>
                   <!-- Play Overlay -->
