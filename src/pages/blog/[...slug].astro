@@ -32,10 +32,10 @@ const related = allPosts
 <BaseLayout
   title={post.data.title + ' | Burst2GIF Blog'}
   description={post.data.description}
-  ogUrl={`https://boost.photo/blog/${post.id}`}
+  ogUrl={`https://www.boost.photo/blog/${post.id}`}
   ogTitle={post.data.title}
   ogDescription={post.data.description}
-  ogImage={post.data.image.startsWith('http') ? post.data.image : `https://boost.photo${post.data.image}`}
+  ogImage={post.data.image.startsWith('http') ? post.data.image : `https://www.boost.photo${post.data.image}`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -46,11 +46,11 @@ const related = allPosts
       "datePublished": post.data.date.toISOString(),
       "dateModified": post.data.date.toISOString(),
       "wordCount": (post.body || '').split(/\s+/).length,
-      "image": post.data.image.startsWith('http') ? post.data.image : `https://boost.photo${post.data.image}`,
-      "author": { "@type": "Person", "name": "Marek Topolar", "url": "https://boost.photo/about" },
-      "publisher": { "@type": "Organization", "name": "boost.photo", "url": "https://boost.photo", "logo": { "@type": "ImageObject", "url": "https://boost.photo/favicon.svg" } },
-      "url": `https://boost.photo/blog/${post.id}`,
-      "mainEntityOfPage": `https://boost.photo/blog/${post.id}`
+      "image": post.data.image.startsWith('http') ? post.data.image : `https://www.boost.photo${post.data.image}`,
+      "author": { "@type": "Person", "name": "Marek Topolar", "url": "https://www.boost.photo/about" },
+      "publisher": { "@type": "Organization", "name": "boost.photo", "url": "https://www.boost.photo", "logo": { "@type": "ImageObject", "url": "https://www.boost.photo/favicon.svg" } },
+      "url": `https://www.boost.photo/blog/${post.id}`,
+      "mainEntityOfPage": `https://www.boost.photo/blog/${post.id}`
     })} />
   </Fragment>
 

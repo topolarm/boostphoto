@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://boost.photo',
+  site: 'https://www.boost.photo',
   output: 'static',
   integrations: [
     sitemap({
