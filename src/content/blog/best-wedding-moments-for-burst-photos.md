@@ -30,6 +30,10 @@ This is the single best moment for a burst GIF at any wedding. The movement is n
 
 I typically get 2-3 burst sequences from the processional: the bride walking with her father, the groom's reaction, and the couple meeting at the altar. Each one becomes a separate GIF.
 
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/wedding-burst-sample-1.mp4" type="video/mp4">
+</video>
+
 ## 2. First Look
 
 The first look is a photographer's goldmine for burst photos. The whole thing is one long reaction shot. The turn, the pause, the face crumbling into tears or breaking into a grin.
@@ -41,6 +45,10 @@ The first look is a photographer's goldmine for burst photos. The whole thing is
 **Tip:** If you have a second shooter, coordinate so one person gets the turner and the other gets the reactor. Two burst sequences, two GIFs, two perspectives of the same moment.
 
 First look GIFs are the ones clients share on social media most often. Something about watching the reaction unfold in real time — even in a 2-second loop — hits differently than a still image.
+
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/wedding-burst-sample-2.mp4" type="video/mp4">
+</video>
 
 ## 3. First Dance
 
@@ -63,6 +71,10 @@ If I could only make one burst GIF per wedding, confetti throws would be strong 
 **Tip:** Talk to the coordinator about timing. If you know the confetti throw happens at a specific moment (exit from ceremony, for example), you can be in position with settings locked. Nothing worse than fumbling with your camera while confetti flies.
 
 This is also one of the most forgiving moments for burst GIFs. The constant particle movement means even imperfect framing, slight camera shake, or variable exposure gets masked by the visual activity.
+
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/wedding-burst-sample-3.mp4" type="video/mp4">
+</video>
 
 ## 5. Bouquet Toss
 
@@ -100,6 +112,10 @@ Sparklers at night are pure magic as burst GIFs. The combination of warm light, 
 
 **Tip:** Play this one back at a slower FPS — 5-8fps instead of the usual 10. Each frame has more visual information (the light trails), and giving the viewer time to appreciate each frame makes the GIF feel dreamier. A 15-frame sparkler GIF at 5fps gives you a 3-second animation that clients will watch on repeat.
 
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/wedding-burst-sample-4.mp4" type="video/mp4">
+</video>
+
 ## 8. Couple Portraits with Movement
 
 This is the one burst-GIF moment you can fully direct. During couple portraits, ask them to walk toward you, spin each other, or do a gentle lift. You control the movement, the framing, and the number of takes.
@@ -111,6 +127,10 @@ This is the one burst-GIF moment you can fully direct. During couple portraits, 
 **Tip:** Repeat the action 2-3 times. The first take is a test. By the third, the couple is relaxed, the movement is natural, and you've refined your timing. The best portrait GIFs come from the second or third attempt, not the first.
 
 A personal favorite: the couple walking along a path, hand in hand, slightly toward the camera. The parallel leg movement, the swinging hands, the natural bounce of the walk — it makes a universally appealing animation.
+
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/wedding-burst-sample-5.mp4" type="video/mp4">
+</video>
 
 ## 9. Ring Exchange
 

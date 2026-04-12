@@ -80,6 +80,8 @@ In Lightroom's Library module, select the burst photos you want to animate. They
 
 Go to **Library > Plug-in Extras > Burst2GIF**. The plugin dialog opens with a live preview of your animation. You can see exactly what the GIF will look like before you export anything.
 
+![Burst2GIF plugin dialog in Lightroom Classic](/assets/images/blog/lightroom-burst-dialog.jpg)
+
 ### Step 3: Configure and Export
 
 Set your options:
@@ -89,6 +91,10 @@ Set your options:
 - **Resolution:** Multiple presets or custom dimensions
 
 Click Export. Done. The file appears right next to your original photos in the Lightroom catalog, with the correct capture time so it sorts chronologically.
+
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/lightroom-burst-export-workflow.mp4" type="video/mp4">
+</video>
 
 **Total time: about 10 seconds.** Not 15 minutes. Not 5 minutes. Ten seconds from selecting photos to having the finished file in your catalog.
 

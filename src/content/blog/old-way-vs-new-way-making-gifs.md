@@ -136,6 +136,10 @@ When it finishes:
 
 You never leave Lightroom. You never touch Photoshop. You never manage files. You never edit metadata.
 
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/lightroom-burst-export-workflow.mp4" type="video/mp4">
+</video>
+
 ### Total Time: 10 Seconds
 
 Ten seconds. Not 10 minutes. Ten seconds from "I want a GIF of this" to "the GIF is in my catalog, ready for export."

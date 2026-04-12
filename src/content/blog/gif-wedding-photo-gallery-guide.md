@@ -58,6 +58,10 @@ But the real magic for gallery delivery is what happens next: Burst2GIF automati
 
 That capture time is everything. It's what makes the gallery workflow possible.
 
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/lightroom-burst-export-workflow.mp4" type="video/mp4">
+</video>
+
 ## The Pic-Time Workflow in Detail
 
 This is the workflow I use for every single wedding. It takes zero extra time beyond the 10 seconds per GIF creation, because everything happens inside Lightroom.
@@ -79,6 +83,10 @@ Export everything to one folder. Your photos and animations end up together, and
 Open your Pic-Time gallery and upload the entire folder. Since Pic-Time reads the file metadata (including capture time), your animated files slot into the correct position between your photos automatically.
 
 The result: your client scrolls through their gallery, and every few photos, a moment comes alive. The first look loops. The confetti falls. The sparklers wave. All in the right place in the timeline.
+
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/pic-time-gallery-burst-demo.mp4" type="video/mp4">
+</video>
 
 ### Important Pic-Time Details
 

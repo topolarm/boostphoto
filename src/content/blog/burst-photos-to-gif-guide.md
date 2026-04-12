@@ -126,6 +126,10 @@ This is the method I built because the first two drove me crazy.
 
 That's it. 3 steps. About 10 seconds per animation.
 
+<video autoplay loop muted playsinline style="border-radius: 12px; margin: 24px 0; width: 100%;">
+  <source src="/assets/videos/blog/lightroom-burst-export-workflow.mp4" type="video/mp4">
+</video>
+
 The plugin reads your photos *with all Lightroom adjustments applied* — exposure, white balance, crop, presets, everything. The output matches what you see in Lightroom's Develop module.
 
 After export, the GIF or MP4 is automatically imported back into your Lightroom catalog with the correct capture time metadata. This matters more than you'd think — when you export an album to Pic-Time or any gallery platform, the animation sits exactly where it should in the timeline, right between the photos it was made from.
