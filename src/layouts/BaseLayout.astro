@@ -32,7 +32,7 @@ const canonical = canonicalUrl || Astro.url.href;
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="author" content="Marek Topolar">
-    {noindex && <meta name="robots" content="noindex">}
+    <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href={canonical}>
 
     <!-- Organization schema (site-wide) -->

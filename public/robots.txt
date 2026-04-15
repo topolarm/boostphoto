@@ -1,47 +1,6 @@
-# AI Search & Retrieval Bots (ALLOW — these power AI search results)
-User-agent: OAI-SearchBot
-Allow: /
+# boost.photo is no longer the primary domain.
+# All content has moved to marektopolar.com.
+# Blocking all crawlers to prevent duplicate content.
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: claude-web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: DuckAssistBot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-# AI Training Bots (BLOCK — crawl for model training, not search)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-# Default
 User-agent: *
-Allow: /
-Disallow: /hvco-guide
-
-Sitemap: https://boost.photo/sitemap-index.xml
+Disallow: /
