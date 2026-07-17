@@ -209,7 +209,7 @@ The finished file auto-imports back into your Lightroom catalog right next to th
 | Auto-imports to LR | No | Yes |
 | Correct capture time | Manual metadata edit | Automatic |
 | GIF + MP4 support | Yes (separate workflows) | Yes (one click toggle) |
-| Cost | Adobe CC subscription ($55/mo) | $39 lifetime |
+| Cost | Adobe CC subscription ($55/mo) | $29 lifetime |
 | Batch workflow | One at a time | One at a time (fast enough) |
 
 ## When Photoshop Still Makes Sense
@@ -232,7 +232,7 @@ If you make GIFs from photo sequences occasionally — once every few shoots —
 
 If you make them regularly — multiple GIFs per wedding, every wedding, every week — the time adds up fast. 15 GIFs per wedding × 4 weddings per month × 12 months = 720 GIFs per year. At 15 minutes each in Photoshop, that's **180 hours per year** spent on a repetitive export task.
 
-[Burst2GIF](https://burst2gif.com) costs $39 once and gets those 180 hours down to about 2. There's a free version with 10 exports if you want to test it first.
+[Burst2GIF](https://burst2gif.com) costs $29 once and gets those 180 hours down to about 2. There's a free version with 10 exports if you want to test it first.
 
 ## What to Read Next
 

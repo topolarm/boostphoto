@@ -223,7 +223,7 @@ Lightroom's video capabilities are limited by design. Adobe built it as a photo 
 
 The Slideshow module handles client presentations. Photoshop handles complex animation projects. But for the specific, common task of turning a burst of photos into a smooth video or GIF — the thing wedding and event photographers need most — there was no good solution inside Lightroom until now.
 
-[Burst2GIF](https://burst2gif.com) fills that gap. $39 lifetime, free version with 10 exports to test. If you're regularly turning rapid-fire shots into animations for client galleries, it saves hours per wedding.
+[Burst2GIF](https://burst2gif.com) fills that gap. $29 lifetime, free version with 10 exports to test. If you're regularly turning rapid-fire shots into animations for client galleries, it saves hours per wedding.
 
 ## Related Articles
 

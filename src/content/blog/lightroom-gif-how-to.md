@@ -161,7 +161,7 @@ The "burst" in the name is just the most common use case. The tool works with an
 
 ### What does it cost?
 
-$39 for a lifetime license (launch price — regular price is $59). There's also a free version limited to 10 exports so you can test the workflow before buying.
+$29 for a lifetime license (launch price — regular price is $59). There's also a free version limited to 10 exports so you can test the workflow before buying.
 
 No subscription. No Creative Cloud required. Just the plugin and Lightroom Classic.
 

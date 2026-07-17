@@ -158,7 +158,7 @@ For a wedding with 20 burst sequences: **3-5 minutes total.** Not 5-7 hours. Min
 | Sets capture time | No (manual) | Yes (automatic) |
 | Output formats | GIF only | GIF and MP4 |
 | Workflow interruption | Switches to different app | Stays in Lightroom |
-| Cost | Photoshop subscription | $39 one-time (launch price) |
+| Cost | Photoshop subscription | $29 one-time (launch price) |
 | 20 GIFs for a wedding | 5-7 hours | 3-5 minutes |
 
 The numbers aren't subtle. This isn't a 20% improvement. It's a fundamental workflow change that turns a multi-hour chore into a few minutes of work you barely notice.
@@ -201,7 +201,7 @@ Honesty time: there are scenarios where the old way is still the right way.
 
 **Cinemagraph creation.** If you're making true cinemagraphs — where part of the image moves and the rest is frozen — you need Photoshop's layer masking capabilities. Burst2GIF animates the entire frame. Selective movement requires pixel-level masking that only a layer-based editor can provide.
 
-**One or two GIFs per year.** If you make animated content so rarely that you'll forget the Burst2GIF workflow between uses, and you already know the Photoshop steps by heart, the switching cost might not be worth it. (Though at $39 one-time for the plugin, the math still favors Burst2GIF even at very low volumes.)
+**One or two GIFs per year.** If you make animated content so rarely that you'll forget the Burst2GIF workflow between uses, and you already know the Photoshop steps by heart, the switching cost might not be worth it. (Though at $29 one-time for the plugin, the math still favors Burst2GIF even at very low volumes.)
 
 **Complex compositing.** If you're combining elements from different sources — a burst sequence with text overlays, graphics, or frames from different shoots — Photoshop's compositing tools are necessary. Burst2GIF works with consecutive frames from one burst sequence.
 
@@ -225,6 +225,6 @@ The old way made GIFs a special occasion. The new way makes them part of every d
 
 [Burst2GIF](/) is available as a Lightroom Classic plugin for macOS. The free version includes 10 exports so you can test the workflow with real wedding content before committing.
 
-The full version is $39 during the launch period (regular price $59) — a lifetime license, no subscription. Compare that to the Photoshop Photography Plan at $275.88/year, and the economics are straightforward.
+The full version is $29 during the launch period (regular price $59) — a lifetime license, no subscription. Compare that to the Photoshop Photography Plan at $275.88/year, and the economics are straightforward.
 
 If you want to see the detailed old-way steps for reference, check the [Photoshop GIF export guide](/blog/photoshop-gif-export-guide). For the complete Burst2GIF workflow, see the [Lightroom GIF how-to](/blog/lightroom-gif-how-to). And for shooting technique, read the [complete burst photography guide](/blog/burst-photos-to-gif-guide).

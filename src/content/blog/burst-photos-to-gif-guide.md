@@ -160,7 +160,7 @@ So I built a plugin to fix it. What took 2 hours now takes 5-10 minutes for an e
 - Auto-imports back to catalog with correct capture time
 - Both GIF and MP4 output
 - Works with 5-120fps sequences
-- $39 lifetime license (launch price, regular $59)
+- $29 lifetime license (launch price, regular $59)
 - Free version available (10 exports to try it)
 
 ### Cons:
@@ -185,7 +185,7 @@ So I built a plugin to fix it. What took 2 hours now takes 5-10 minutes for an e
 | **GIF output** | Yes | Yes | Yes |
 | **MP4 output** | No (needs extra tools) | Rarely | Yes |
 | **Works inside LR** | No | No | Yes |
-| **Cost** | CC subscription | Free (with limits) | $39 lifetime |
+| **Cost** | CC subscription | Free (with limits) | $29 lifetime |
 | **Privacy** | Local | Cloud upload | Local |
 | **Quality control** | High (manual) | Low-Medium | High (automatic) |
 
@@ -289,7 +289,7 @@ Start with 10fps for a natural look. Use 5-8fps for a more artistic, stop-motion
 
 ### Is there a free version?
 
-Yes. The free version of Burst2GIF includes 10 exports so you can test it with real photos before buying. The full license is $39 (launch price, regular $59) and it's a one-time payment — no subscription.
+Yes. The free version of Burst2GIF includes 10 exports so you can test it with real photos before buying. The full license is $29 (launch price, regular $59) and it's a one-time payment — no subscription.
 
 ### Does it work on Windows?
 
