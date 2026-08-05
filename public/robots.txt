@@ -1,6 +1,12 @@
-# boost.photo is no longer the primary domain.
-# All content has moved to marektopolar.com.
-# Blocking all crawlers to prevent duplicate content.
+# boost.photo se 5. 8. 2026 prestehoval na marektopolar.com.
+#
+# NEZAKAZOVAT PROCHAZENI. Od 15. 4. do 5. 8. 2026 tu bylo "Disallow: /",
+# coz byl omyl: Disallow neodstrani uz zaindexovane stranky, jen zabrani
+# jejich novemu prochazeni. Domena proto zustala v indexu zamrzla a Google
+# se nemohl podivat na 301 presmerovani, takze se signal nemohl prenest.
+#
+# Roboti tu musi mit pristup, aby si precetli presmerovani na marektopolar.com.
+# Duplicitu neresi zakaz prochazeni, ale prave ta presmerovani.
 
 User-agent: *
-Disallow: /
+Allow: /
