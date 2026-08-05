@@ -67,4 +67,28 @@ https://boost.photo/      301 → https://www.boost.photo/
 https://www.boost.photo/  308 → https://marektopolar.com/
 ```
 
-Zbývá jen v Search Console (property `boost.photo` → Settings → Change of address) vybrat v rozbalovátku **marektopolar.com** a dát Validate & update. Ovládání toho rozbalovátka přes automatizaci selhávalo, psaní ho nefiltrovalo a jednou omylem vybralo `eliskalisalova.cz` (nepotvrzeno, nic se neuložilo).
+Validace ale padala dál i po opravě řetězu. **Skutečná příčina byla jinde a je to nejdůležitější zjištění celé migrace.**
+
+## robots.txt blokoval celé procházení (a rozbil by celou migraci)
+
+Na boost.photo bylo od **15. 4. 2026** (commit `df552c5`, „block all search engine indexing") tohle:
+
+```
+# Blocking all crawlers to prevent duplicate content.
+User-agent: *
+Disallow: /
+```
+
+Záměr byl zabránit duplicitě. Efekt byl opačný:
+
+- **`Disallow` neodstraní už zaindexované stránky**, jen zabrání jejich novému procházení. boost.photo proto zůstal od dubna v indexu **zamrzlý** a dál rankoval (pozice 8,1 na `/blog/lightroom-video-export-guide`).
+- Google se na doménu nemohl podívat, takže **neviděl ani 301 přesměrování**. Signál by se nikdy nepřenesl a rankingy by místo přesunu prostě umřely.
+- Odtud i hláška validace „Couldn't fetch the page: http://boost.photo/".
+
+Vysvětluje to zpětně i to, proč si Google z duplicit vybral boost.photo a proč byly kopie na marektopolar.com neviditelné: měl jednu verzi zaindexovanou a zmraženou, druhou bez důvodu upřednostnit.
+
+**Opraveno 5. 8. 2026 na `Allow: /`.** Ověřeno na apexu i na www.
+
+**Pravidlo:** při stěhování domény se procházení staré domény **nikdy nezakazuje**. Duplicitu řeší přesměrování, ne robots.txt. Zákaz procházení je přesně to, co přenosu signálu zabrání.
+
+Zbývá jen v Search Console (property `boost.photo` → Settings → Change of address) vybrat **marektopolar.com** a dát Validate & update. Google si robots.txt cachuje řádově hodiny, takže hned po opravě může validace ještě spadnout.
