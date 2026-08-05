@@ -3,5 +3,15 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "$comment": "5. 8. 2026: boost.photo se stehuje na marektopolar.com. Domena zustava naziva jako rozcestnik; obsah v dist/ je jen zaloha, protoze redirects se ve Vercelu vyhodnocuji PRED filesystemem. Sitemapa se zamerne nepresmerovava, aby si pres ni Google dosel pro stare URL a presun zaznamenal rychleji. Homepage miri na homepage (ne na /tools), protoze to vyzaduje nastroj Change of address v Search Console a obsahove to sedi: marektopolar.com/ je 'Tools That Make Photography Effortless'. Baseline pred zasahem (GSC, 90 dni): 4 kliky, 450 zobrazeni, /blog/lightroom-video-export-guide na pozici 8,1.",
+  "redirects": [
+    { "source": "/blog/:slug", "destination": "https://marektopolar.com/blog/:slug", "permanent": true },
+    { "source": "/blog", "destination": "https://marektopolar.com/blog", "permanent": true },
+    { "source": "/about", "destination": "https://marektopolar.com/about", "permanent": true },
+    { "source": "/privacy", "destination": "https://marektopolar.com/privacy", "permanent": true },
+    { "source": "/terms", "destination": "https://marektopolar.com/terms", "permanent": true },
+    { "source": "/hvco-guide", "destination": "https://marektopolar.com/tools", "permanent": true },
+    { "source": "/", "destination": "https://marektopolar.com/", "permanent": true }
+  ]
 }
