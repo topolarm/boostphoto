@@ -52,3 +52,19 @@ Všech 16 URL z buildu je pokryto. Před nasazením bylo ověřeno, že 13 cíl�
 ## Poznámka k měření
 
 Na marektopolar.com byla GA4 od 15. 4. nasazená, ale **sama sebe blokovala** až do opravy 31. 7. (commit `94eea0f`). Data proto začínají až srpnem 2026. Cokoli o zdrojích návštěv před tímhle datem je nedohledatelné.
+
+## Stav Change of address (5. 8. 2026)
+
+**Nedokončeno, čeká na Marka.** Není to blokující, přesměrování dělají hlavní práci samy; tenhle nástroj přesun jen urychluje.
+
+První pokus o validaci selhal na testu „301-redirect from homepage" s hláškou **„Couldn't fetch the page: http://boost.photo/"**. Příčina: z apexu vedl řetěz tří přesměrování a prostřední bylo **dočasné (307)**, protože Vercel měl `boost.photo → www.boost.photo` nastavené jako Temporary Redirect.
+
+**Opraveno ve Vercelu na 301 Moved Permanently.** Řetěz je teď celý trvalý:
+
+```
+http://boost.photo/       308 → https://boost.photo/
+https://boost.photo/      301 → https://www.boost.photo/
+https://www.boost.photo/  308 → https://marektopolar.com/
+```
+
+Zbývá jen v Search Console (property `boost.photo` → Settings → Change of address) vybrat v rozbalovátku **marektopolar.com** a dát Validate & update. Ovládání toho rozbalovátka přes automatizaci selhávalo, psaní ho nefiltrovalo a jednou omylem vybralo `eliskalisalova.cz` (nepotvrzeno, nic se neuložilo).
