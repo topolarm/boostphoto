@@ -53,9 +53,11 @@ Všech 16 URL z buildu je pokryto. Před nasazením bylo ověřeno, že 13 cíl�
 
 Na marektopolar.com byla GA4 od 15. 4. nasazená, ale **sama sebe blokovala** až do opravy 31. 7. (commit `94eea0f`). Data proto začínají až srpnem 2026. Cokoli o zdrojích návštěv před tímhle datem je nedohledatelné.
 
-## Stav Change of address (5. 8. 2026)
+## Change of address — HOTOVO 6. 8. 2026
 
-**Nedokončeno, čeká na Marka.** Není to blokující, přesměrování dělají hlavní práci samy; tenhle nástroj přesun jen urychluje.
+**Potvrzeno.** GSC hlásí „This site is currently moving: boost.photo → marektopolar.com, date started 6 August 2026". Oba povinné testy zelené.
+
+Průběh: Není to blokující, přesměrování dělají hlavní práci samy; tenhle nástroj přesun jen urychluje.
 
 První pokus o validaci selhal na testu „301-redirect from homepage" s hláškou **„Couldn't fetch the page: http://boost.photo/"**. Příčina: z apexu vedl řetěz tří přesměrování a prostřední bylo **dočasné (307)**, protože Vercel měl `boost.photo → www.boost.photo` nastavené jako Temporary Redirect.
 
@@ -92,3 +94,5 @@ Vysvětluje to zpětně i to, proč si Google z duplicit vybral boost.photo a pr
 **Pravidlo:** při stěhování domény se procházení staré domény **nikdy nezakazuje**. Duplicitu řeší přesměrování, ne robots.txt. Zákaz procházení je přesně to, co přenosu signálu zabrání.
 
 Zbývá jen v Search Console (property `boost.photo` → Settings → Change of address) vybrat **marektopolar.com** a dát Validate & update. Google si robots.txt cachuje řádově hodiny, takže hned po opravě může validace ještě spadnout.
+
+**Co rozhodlo:** 6. 8. měl Google obnovený robots.txt jen u jedné varianty (`https://www.boost.photo/robots.txt`, 527 bytů, načteno 5. 8. v 11:13). Ostatní tři pořád 173 B z července. Validace i tak prošla, takže **stačí obnova jedné varianty, nemusí všechny**.
